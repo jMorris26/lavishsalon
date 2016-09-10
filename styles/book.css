@@ -1,0 +1,139 @@
+form {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom:
+}
+
+label {
+  font-family: WalkwayBold, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 3.5em;
+  opacity: 0.5;
+}
+
+input {
+  width: 100%;
+  border-radius: 0.5em;
+  font-size: 2em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  float: left;
+}
+
+h3 {
+  text-align: center;
+  font-family: WalkwayBold, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 3.5em;
+}
+
+.turq {
+  color: #78D5D7;
+  /*text-align: left;*/
+}
+
+select{
+  font-size: 2.5em;
+  background-color: rgb(255, 255, 255);
+  /*width: 40%;*/
+  margin-right: 1em;
+  padding: 0.75em;
+  border-radius: 0.5em;
+}
+
+.amORpm {
+  width: 20%;
+  display: inline-block;
+  margin-right: 0;
+}
+
+.radio {
+  height: 2em;
+  width: 2em;
+  display: inline-block;
+}
+
+.timeofday {
+  margin-right: 0.35em;
+  font-size: 3em;
+}
+
+.late {
+  margin-left: 0.5em;
+}
+
+.serviceSelect {
+  font-size: 2.2em;
+  padding-left: 0.5em;
+  opacity: 1;
+  display: inline;
+}
+
+.servicecheck {
+  height: 1em;
+  width: 10%;
+}
+
+.eachService {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.smallprint {
+  font-size: 0.6em;
+}
+
+.submit {
+  background-color: #78D5D7;
+  border: 3px solid #FAF8D4;
+  font-family: WalkwayBold, Arial, sans-serif;
+  font-size: 4em;
+  border-radius: 1em;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ landscape mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media all and (orientation:landscape) {
+  .servicecheck {
+    height: 0.6em;
+  }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ iPad mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+
+  .servicecheck {
+    height: 0.6em;
+  }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px){
+
+  .submit {
+    margin-bottom: 3em;
+  }
+
+  .submit:hover {
+    background-color: #FAF8D4;
+    border: 3px solid #78D5D7;
+  }
+
+  .servicecheck {
+    width: 4%;
+  }
+
+  label {
+    font-size: 2em;
+  }
+
+  input {
+    font-size: 1.5em;
+  }
+
+}

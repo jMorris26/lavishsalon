@@ -1,0 +1,72 @@
+h1 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+table {
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+  margin: 0 auto;
+  padding-left: 1em;
+  border-radius: 2em;
+}
+
+thead {
+  background-color: #78D5D7;
+  font-size: 3em;
+  font-family: WalkwayBold, Arial, sans-serif;
+}
+
+td {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+tbody {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+/*.asterisk {
+  text-align: center;
+  color: #FAF8D4;
+  margin-top: 0.5em;
+  font-size: 2em;
+}*/
+
+.asterisk {
+  background-color: #FAF8D4;
+  width: 100%;
+}
+
+.asterisk td {
+  padding-top: 0.3em;
+  /*text-align: center;*/
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+  padding-right: 20px;
+  padding-left: 40px;
+  font-size: 1.8em;
+}
+
+.title {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+.top {
+  padding-top: 1em;
+}
+
+.bottom {
+  padding-bottom: 1em;
+}
+
+.price {
+  float: right;
+  margin-right: 40px;
+}
+
+.service {
+  padding-left: 40px;
+}

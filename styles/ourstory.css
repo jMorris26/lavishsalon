@@ -1,0 +1,43 @@
+#ourstorypic {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #78D5D7;
+  border-bottom-right-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+
+.about {
+  color: rgba(255, 255, 255, 0.7);
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2em;
+  font-family: WalkwayBold, Arial, sans-serif;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px){
+  .ourstory {
+    margin-top: -1em;
+}
+
+  #ourstorypic {
+    width: 55%;
+    float: right;
+    margin-right: 3em;
+  }
+
+  .about {
+    float: left;
+    text-align: right;
+    width: 37%;
+    margin-left: 2em;
+    margin-top: -45em;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

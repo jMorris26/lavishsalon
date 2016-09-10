@@ -1,0 +1,152 @@
+@font-face{
+	font-family: 'WalkwayBold';
+	src: url('walkway/Walkway_Bold-webfont.eot');
+	src: url('walkway/Walkway_Bold-webfont.woff') format('woff'),
+	     url('walkway/Walkway_Bold-webfont.ttf') format('truetype'),
+	     url('walkway/Walkway_Bold-webfont.svg') format('svg');
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+body {
+  background-color: rgb(66, 72, 76);
+}
+.nopad {
+  padding: 0;
+  margin: 0;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.desktopIntro {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  color: rgb(66, 72, 76);
+  font-size: 2em;
+  margin-top: 0.8em;
+  font-family: WalkwayBold, Arial, sans-serif;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+  margin: 0 auto;
+}
+
+.navbar {
+  background-color: #FAF8D4;
+  width: 100vw;
+  height: 6em;
+}
+
+/*.slideshow {
+  background-color: #78D5D7;
+  width: 100%;
+  height: 20em;
+}*/
+
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 100%;
+    /*height: 240px;*/
+    /*padding: 10px;*/
+    /*box-shadow: 0 0 20px rgba(0,0,0,0.4);*/
+}
+
+#slideshow img {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 10px;
+    bottom: 10px;
+    width: 100%;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+}
+
+#footer {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background-color: rgb(66, 72, 76);
+  /*background-color: rgb(139, 139, 138);*/
+  position: fixed;
+  border-top: 3px solid #78D5D7;
+  border-bottom: 3px solid #78D5D7;
+  left:0px;
+  bottom:0px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75em;
+  margin-top: 10em;
+  font-family: WalkwayBold, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+  /*margin-bottom: 0;*/
+}
+
+strong {
+  font-size: 1.5em;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px){
+  #logo {
+    margin-left: 3em;
+    width: 25%;
+  }
+
+  li {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+  }
+
+  .navbar {
+    margin-top: -12.74em;
+    width: 68%;
+    margin-right: 3em;
+    margin-left: 2em;
+    float: right;
+    height: 2em;
+  }
+
+  #slideshow {
+    margin-top: -30em;
+    margin-left: 6em;
+  }
+
+  #slideshow img {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .desktopIntro {
+    display: block;
+    margin-left: 3em;
+    color: rgba(255, 255, 255, 0.7);
+    width: 23%;
+    font-size: 1.5em;
+    text-align: right;
+    font-family: WalkwayBold, Arial, sans-serif;
+  }
+}

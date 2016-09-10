@@ -1,0 +1,33 @@
+h1 {
+  text-align: center;
+  font-family: WalkwayBold, Arial, sans-serif;
+  font-size: 4.5em;
+}
+
+h4 {
+  text-align: center;
+  font-family: WalkwayBold, Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 2.5em;
+}
+
+#salon {
+  width: 100%;
+  margin-top: -17em;
+}
+
+#map {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid #78D5D7;
+  border-bottom-right-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+
+.contacthr {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
