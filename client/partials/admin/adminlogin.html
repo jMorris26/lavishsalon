@@ -1,0 +1,18 @@
+<h1>Admin Login</h1>
+
+<form ng-controller="controller as c">
+
+  <label>Username</label>
+    <input type="text" name="username" ng-model="c.user"/>
+
+    <br />
+
+  <label>Password</label>
+    <input type="password" name="password" ng-model="c.password"/>
+
+    <br /><br />
+
+    <input type="submit" name="login" class="submit login" value="Log In" ng-click="c.auth(c.user, c.password, '/welcome')"/>
+
+    <h1>{{ c.message }}</h1>
+</form>
