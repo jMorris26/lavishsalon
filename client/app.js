@@ -65,26 +65,42 @@ app.directive('slider', [function(){
   };
 }]);
 
-app.directive('date', [function(){
+app.directive('date', ['$document', function($document){
   return {
     templateUrl: 'partials/datepicker.html',
     link: function(){
       $( "#datepicker" ).datepicker({
           beforeShowDay: function(date) {
           var day = date.getDay();
-          return [(day !== 0)];
+          //var today = $document[0].getElementByClass("ui-datepicker-today");
+
+          //if(day >= today){
+            return [(day !== 0)];
+        //  }
+
+
+
+            // TODO: make sure client cannot select a past date
         }
       });
     }
   };
 }]);
 
-app.directive('calendar', [function(){
+// app.directive('clientcalendar', [function(){
+//   $( "#checkavailable" ).click(function() {
+//     $( "#clientcalendarshow" ).slideDown( "slow", function() {
+//       // Animation complete.
+//     });
+//   });
+// }]);
+
+app.directive('calendar', ['$http', '$document', function($http, $document){
   return {
     templateUrl: 'partials/admin/calendar.html',
     link: function(){
-      $('#calendar').fullCalendar({
 
+      $('#calendar').fullCalendar({
         // businessHours:
         //       {
         //           dow: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
@@ -92,19 +108,33 @@ app.directive('calendar', [function(){
         //           end: '17:00' // 5pm
         //       },
 
-        events: [
-                {
-                    title: 'My Event',
-                    start: '2016-09-02T12:30:00',
-                    description: 'This is a cool event'
-                },
-                {
-                    title: 'My Other Event',
-                    start: '2016-09-02T13:30:00',
-                    description: 'This is a cool event'
-                }
-                // more events here
-            ],
+        header: {
+          left: 'title',
+          right: 'prev,today,next,agendaDay,basicWeek,month'
+        },
+
+        allDaySlot: false,
+
+        minTime: '06:00:00',
+
+        maxTime: '20:00:00',
+
+        displayEventTime: true,
+
+        displayEventEnd: true,
+
+        editable: true,
+
+        defaultView: 'basicWeek',
+
+        //this.events[i].title =
+        //events: [],
+
+
+        events: 'http://localhost:3000/admin/welcome',
+
+        refetchEvents: 'http://localhost:3000/admin/welcome',
+
         eventRender: function(event, element) {
                 // element.qtip({
                 //     content: event.description
@@ -112,28 +142,62 @@ app.directive('calendar', [function(){
             },
 
         dayClick: function(date, jsEvent, view) {
+
           console.log(date.format());
-          $("#dialog").dialog({ width: '75%', display: true, show: 'fade', hide: 'fade' });
+          console.log('doc', $document);
+          var client_name = $document[0].getElementById("client_name");
+          var starttime_hr = $document[0].getElementById("starttime_hr");
+          var starttime_min = $document[0].getElementById("starttime_min");
+          var endtime_hr = $document[0].getElementById("endtime_hr");
+          var endtime_min = $document[0].getElementById("endtime_min");
+          var services = $document[0].getElementById("services");
+          var originalContent;
+
+          $("#dialog").dialog({
+
+              width: '75%',
+              display: true,
+              show: 'fade',
+              hide: 'fade',
+              open : function(event, ui) {
+                originalContent = $("#newDialog-form").html();
+              },
+              close : function(event, ui) {
+                $("#newDialog-form").html(originalContent);
+              }
+
+            });
+
           $("#cancel").click(function(){
             $(this).closest('.ui-dialog-content').dialog('close');
+
           });
 
           $("#addEvent").click(function(){
             console.log('Date: ' + date.format());
-            var clientName = document.getElementById("clientName");
-            var startTime = document.getElementById("startTime");
-            var endTime = document.getElementById("endTime");
-            var serviceList = document.getElementById("serviceList");
 
-            console.log('Client Name: ' + clientName.value);
-            console.log('Start Time: ' + startTime.value);
-            console.log('End Time: ' + endTime.value);
-            console.log('Services: ' + serviceList.value);
-
-            if(clientName.value !== '' || startTime.value !== '' || endTime.value !== '' || serviceList.value !== ''){
+            if(client_name.value !== '' || starttime_hr.value !== '' || starttime_min.value !== '' || endtime_hr.value !== '' || endtime_min.value !== '' || services.value !== ''){
               $(this).closest('.ui-dialog-content').dialog('close');
+              var data = {
+                date: date.format(),
+                client_name: client_name.value,
+                starttime_hr: starttime_hr.value,
+                starttime_min: starttime_min.value,
+                endtime_hr: endtime_hr.value,
+                endtime_min: endtime_min.value,
+                services: services.value
+              };
+
+              $http.post('http://localhost:3000/admin/welcome', data)
+              .then(function(data){
+                console.log(data);
+                $('#calendar').fullCalendar('refetchEvents');
+              }, function(err){
+                console.log(err);
+              });
+
             } else {
-              $("#fillOutFields").show({display: true});
+              $("#fillOutFields").show({display: true}); //displays the validation error
             }
 
           });
@@ -150,6 +214,8 @@ app.directive('calendar', [function(){
    }
  };
 }]);
+
+
 
 
 app.factory('authInterceptor', ['$q', '$window', '$location', function($q, $window, $location){

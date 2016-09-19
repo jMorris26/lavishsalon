@@ -80,8 +80,17 @@
       <label class="timeofday late">PM</label><input type="radio" name="amORpm" ng-model="bc.form.amORpm" value="pm" class="radio">
     </div>
 
+    <br /><br /><br /><br />
+
     <br /><br />
-    <br /><br />
+
+    <div class="row checkAv">
+      <label ng-click="bc.showAvailable = !bc.showAvailable" id="checkavailable">(Click here to show availability)</label>
+    </div>
+
+      <calendar ng-show="bc.showAvailable" id="clientcalendarshow"></calendar>
+      <!-- TODO: this calendar should ONLY show uneditable data without client names, preferrably in week form -->
+
     <br /><br />
 
   <hr />

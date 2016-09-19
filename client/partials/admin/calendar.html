@@ -11,20 +11,90 @@
 
 
 <div id="dialog" title="Add an Appointment">
-  <form>
+  <form id="newDialog-form">
     <br />
     <h1 class="dialogLabel dialogTitle">Add an Appointment</h1>
     <label class="dialogLabel">Client Name</label><br />
-      <input type="text" id="clientName"/><br /><br />
+      <input type="text" id="client_name" name="client_name"/><br /><br />
 
-    <label class="dialogLabel">Start Time:</label><br />
-      <input type="text" id="startTime"/><br /><br />
 
-    <label class="dialogLabel">End Time: </label><br />
-      <input type="text" id="endTime"/><br /><br />
+      <label class="dialogLabel">Select Start Time:</label><br />
+        <select name="hour" id="starttime_hr">
+          <option value="">Hour</option>
+          <option value="T08:">08</option>
+          <option value="T09:">09</option>
+          <option value="T10:">10</option>
+          <option value="T11:">11</option>
+          <option value="T12:">Noon</option>
+          <option value="T13:">01</option>
+          <option value="T14:">02</option>
+          <option value="T15:">03</option>
+          <option value="T16:">04</option>
+          <option value="T17:">05</option>
+          <option value="T18:">06</option>
+        </select>
+
+        <select name="minute" id="starttime_min">
+          <option value="">Minute</option>
+          <option value="00:00">00</option>
+          <option value="05:00">05</option>
+          <option value="10:00">10</option>
+          <option value="15:00">15</option>
+          <option value="20:00">20</option>
+          <option value="25:00">25</option>
+          <option value="30:00">30</option>
+          <option value="35:00">35</option>
+          <option value="40:00">40</option>
+          <option value="45:00">45</option>
+          <option value="50:00">50</option>
+          <option value="55:00">55</option>
+        </select><br /><br />
+
+
+    <!-- <label class="dialogLabel">Start Time:</label><br />
+      <input type="text" id="starttime" name="starttime"/><br /><br /> -->
+
+      <!-- TODO: change data table to have a start time min, hour, and an end time min, hr AND SEARCH thru client side and change id names accordingly -->
+
+
+    <label class="dialogLabel">Select End Time:</label><br />
+      <select name="hour" id="endtime_hr">
+        <option value="">Hour</option>
+        <option value="T08:">08</option>
+        <option value="T09:">09</option>
+        <option value="T10:">10</option>
+        <option value="T11:">11</option>
+        <option value="T12:">Noon</option>
+        <option value="T13:">01</option>
+        <option value="T14:">02</option>
+        <option value="T15:">03</option>
+        <option value="T16:">04</option>
+        <option value="T17:">05</option>
+        <option value="T18:">06</option>
+      </select>
+
+      <select name="minute" id="endtime_min">
+        <option value="">Minute</option>
+        <option value="00:00">00</option>
+        <option value="05:00">05</option>
+        <option value="10:00">10</option>
+        <option value="15:00">15</option>
+        <option value="20:00">20</option>
+        <option value="25:00">25</option>
+        <option value="30:00">30</option>
+        <option value="35:00">35</option>
+        <option value="40:00">40</option>
+        <option value="45:00">45</option>
+        <option value="50:00">50</option>
+        <option value="55:00">55</option>
+      </select><br /><br />
+
+
+    <!-- <label class="dialogLabel">End Time: </label><br />
+      <input type="text" id="endtime" name="endtime"/><br /><br /> -->
 
     <label class="dialogLabel">Services Requested:</label><br />
-      <input type="text" id="serviceList"/><br /><br /><br /><br />
+      <input type="text" id="services" name="services"/><br /><br /><br /><br />
 
     <input type="submit" value="Add Event" class="addEvent" id="addEvent"/>
     <input type="submit" value="Cancel" class="cancel" id="cancel"/>

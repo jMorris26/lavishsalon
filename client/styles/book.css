@@ -124,6 +124,22 @@ a {
   text-align: center;
 }
 
+#checkavailable {
+  color: rgb(66, 72, 76);
+  opacity: 0.7;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+  cursor: pointer;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.checkAv {
+  background-color: #FAF8D4;
+  border-radius: 0.5em;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ landscape mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 @media all and (orientation:landscape) {

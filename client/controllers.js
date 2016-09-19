@@ -43,6 +43,7 @@ app.controller('controller', ['$http', '$window', '$location', function($http, $
 app.controller('BookController', ['$http', '$location', function($http, $location){
   var vm = this;
   vm.form = {};
+  vm.showAvailable = false;
   vm.buttonClick = function(path){
     console.log(vm.form);
     var basePath = 'http://localhost:3000';
