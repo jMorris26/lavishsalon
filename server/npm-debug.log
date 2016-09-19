@@ -1,0 +1,552 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'angular-offline' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData angular-offline
+8 silly fetchNamedPackageData angular-offline
+9 silly mapToRegistry name angular-offline
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'angular-offline',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'angular-offline',
+12 silly mapToRegistry   name: 'angular-offline',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/angular-offline
+14 verbose request uri https://registry.npmjs.org/angular-offline
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 10:07:51 AM
+17 verbose request id bdb14cb4f358fffa
+18 verbose etag "5COOG8YJKJ3F0AY29G94KSTED"
+19 http request GET https://registry.npmjs.org/angular-offline
+20 http 304 https://registry.npmjs.org/angular-offline
+21 verbose headers { date: 'Thu, 15 Sep 2016 16:07:52 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   etag: '"5COOG8YJKJ3F0AY29G94KSTED"',
+21 verbose headers   age: '21',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-den6024-DEN',
+21 verbose headers   'x-cache': 'HIT',
+21 verbose headers   'x-cache-hits': '1',
+21 verbose headers   'x-timer': 'S1473955672.460799,VS0,VE0',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Thu, 15 Sep 2016 16:07:52 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     etag: '"5COOG8YJKJ3F0AY29G94KSTED"',
+22 silly get     age: '21',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-den6024-DEN',
+22 silly get     'x-cache': 'HIT',
+22 silly get     'x-cache-hits': '1',
+22 silly get     'x-timer': 'S1473955672.460799,VS0,VE0',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/angular-offline from cache
+24 verbose get saving angular-offline to /Users/Jess/.npm/registry.npmjs.org/angular-offline/.cache.json
+25 verbose correctMkdir /Users/Jess/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule angular-offline@0.1.0 checking installable status
+39 silly cache add args [ 'angular-offline', null ]
+40 verbose cache add spec angular-offline
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'angular-offline',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'angular-offline',
+41 silly cache add   name: 'angular-offline',
+41 silly cache add   rawSpec: '',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed angular-offline@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for angular-offline
+44 info addNameTag [ 'angular-offline', 'latest' ]
+45 silly mapToRegistry name angular-offline
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'angular-offline',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'angular-offline',
+48 silly mapToRegistry   name: 'angular-offline',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npmjs.org/angular-offline
+50 verbose addNameTag registry:https://registry.npmjs.org/angular-offline not in flight; fetching
+51 verbose get https://registry.npmjs.org/angular-offline not expired, no request
+52 silly addNameTag next cb for angular-offline with tag latest
+53 silly addNamed angular-offline@0.1.0
+54 verbose addNamed "0.1.0" is a plain semver version for angular-offline
+55 silly cache afterAdd angular-offline@0.1.0
+56 verbose afterAdd /Users/Jess/.npm/angular-offline/0.1.0/package/package.json not in flight; writing
+57 verbose correctMkdir /Users/Jess/.npm correctMkdir not in flight; initializing
+58 verbose afterAdd /Users/Jess/.npm/angular-offline/0.1.0/package/package.json written
+59 silly loadAllDepsIntoIdealTree Finishing
+60 silly loadIdealTree Finishing
+61 silly currentTree server@1.0.0
+61 silly currentTree ├── accepts@1.3.3
+61 silly currentTree ├── ansi-regex@2.0.0
+61 silly currentTree ├── ansi-styles@2.2.1
+61 silly currentTree ├── arr-diff@2.0.0
+61 silly currentTree ├── arr-flatten@1.0.1
+61 silly currentTree ├── array-flatten@1.1.1
+61 silly currentTree ├── array-unique@0.2.1
+61 silly currentTree ├── async@1.5.2
+61 silly currentTree ├── base64-url@1.3.2
+61 silly currentTree ├── base64url@1.0.6
+61 silly currentTree ├── basic-auth@1.0.4
+61 silly currentTree ├── bluebird@3.4.6
+61 silly currentTree ├── body-parser@1.15.2
+61 silly currentTree ├── braces@1.8.5
+61 silly currentTree ├── buffer-equal-constant-time@1.0.1
+61 silly currentTree ├── bytes@2.4.0
+61 silly currentTree ├── camelcase-keys@1.0.0
+61 silly currentTree ├── camelcase@1.2.1
+61 silly currentTree ├── chalk@1.1.3
+61 silly currentTree ├── commander@2.9.0
+61 silly currentTree ├── concat-stream@1.4.10
+61 silly currentTree ├── content-disposition@0.5.1
+61 silly currentTree ├── content-type@1.0.2
+61 silly currentTree ├── cookie-signature@1.0.6
+61 silly currentTree ├── cookie@0.3.1
+61 silly currentTree ├── core-util-is@1.0.2
+61 silly currentTree ├── cors@2.8.1
+61 silly currentTree ├── debug@2.2.0
+61 silly currentTree ├── depd@1.1.0
+61 silly currentTree ├── destroy@1.0.4
+61 silly currentTree ├── detect-file@0.1.0
+61 silly currentTree ├── double-ended-queue@2.1.0-0
+61 silly currentTree ├── ecdsa-sig-formatter@1.0.7
+61 silly currentTree ├── ee-first@1.1.1
+61 silly currentTree ├── encodeurl@1.0.1
+61 silly currentTree ├── escape-html@1.0.3
+61 silly currentTree ├── escape-string-regexp@1.0.5
+61 silly currentTree ├── etag@1.7.0
+61 silly currentTree ├── expand-brackets@0.1.5
+61 silly currentTree ├── expand-range@1.8.2
+61 silly currentTree ├── expand-tilde@1.2.2
+61 silly currentTree ├─┬ express-jwt@5.0.0
+61 silly currentTree │ └── jsonwebtoken@6.2.0
+61 silly currentTree ├── express-unless@0.3.0
+61 silly currentTree ├── express@4.14.0
+61 silly currentTree ├── extend@3.0.0
+61 silly currentTree ├── extglob@0.3.2
+61 silly currentTree ├── filename-regex@2.0.0
+61 silly currentTree ├── fill-range@2.2.3
+61 silly currentTree ├── finalhandler@0.5.0
+61 silly currentTree ├── findup-sync@0.4.2
+61 silly currentTree ├── flagged-respawn@0.3.2
+61 silly currentTree ├── for-in@0.1.5
+61 silly currentTree ├── for-own@0.1.4
+61 silly currentTree ├── forwarded@0.1.0
+61 silly currentTree ├── fresh@0.3.0
+61 silly currentTree ├── fs-exists-sync@0.1.0
+61 silly currentTree ├── fullcalendar@3.0.0
+61 silly currentTree ├── get-stdin@4.0.1
+61 silly currentTree ├── glob-base@0.3.0
+61 silly currentTree ├── glob-parent@2.0.0
+61 silly currentTree ├── global-modules@0.2.3
+61 silly currentTree ├── global-prefix@0.1.4
+61 silly currentTree ├── graceful-readlink@1.0.1
+61 silly currentTree ├── has-ansi@2.0.0
+61 silly currentTree ├── hashmap@2.0.6
+61 silly currentTree ├── hoek@2.16.3
+61 silly currentTree ├─┬ http-errors@1.5.0
+61 silly currentTree │ └── inherits@2.0.1
+61 silly currentTree ├── iconv-lite@0.4.13
+61 silly currentTree ├── indent-string@1.2.2
+61 silly currentTree ├── inherits@2.0.3
+61 silly currentTree ├── ini@1.3.4
+61 silly currentTree ├── interpret@0.6.6
+61 silly currentTree ├── ipaddr.js@1.1.1
+61 silly currentTree ├── is-buffer@1.1.4
+61 silly currentTree ├── is-dotfile@1.0.2
+61 silly currentTree ├── is-equal-shallow@0.1.3
+61 silly currentTree ├── is-extendable@0.1.1
+61 silly currentTree ├── is-extglob@1.0.0
+61 silly currentTree ├── is-finite@1.0.1
+61 silly currentTree ├── is-glob@2.0.1
+61 silly currentTree ├── is-number@2.1.0
+61 silly currentTree ├── is-posix-bracket@0.1.1
+61 silly currentTree ├── is-primitive@2.0.0
+61 silly currentTree ├── is-windows@0.2.0
+61 silly currentTree ├── isarray@0.0.1
+61 silly currentTree ├── isemail@1.2.0
+61 silly currentTree ├── isexe@1.1.2
+61 silly currentTree ├─┬ isobject@2.1.0
+61 silly currentTree │ └── isarray@1.0.0
+61 silly currentTree ├── joi@6.10.1
+61 silly currentTree ├── jquery@3.1.0
+61 silly currentTree ├── jsonwebtoken@7.1.9
+61 silly currentTree ├── jwa@1.1.3
+61 silly currentTree ├── jws@3.1.3
+61 silly currentTree ├── kind-of@3.0.4
+61 silly currentTree ├─┬ knex@0.11.10
+61 silly currentTree │ └── minimist@1.1.3
+61 silly currentTree ├── liftoff@2.2.5
+61 silly currentTree ├── lodash.once@4.1.1
+61 silly currentTree ├── lodash.set@4.3.2
+61 silly currentTree ├── lodash@4.15.0
+61 silly currentTree ├── map-obj@1.0.1
+61 silly currentTree ├── media-typer@0.3.0
+61 silly currentTree ├── meow@2.0.0
+61 silly currentTree ├── merge-descriptors@1.0.1
+61 silly currentTree ├── methods@1.1.2
+61 silly currentTree ├── micromatch@2.3.11
+61 silly currentTree ├── mime-db@1.23.0
+61 silly currentTree ├── mime-types@2.1.11
+61 silly currentTree ├── mime@1.3.4
+61 silly currentTree ├── minimist@1.2.0
+61 silly currentTree ├─┬ mkdirp@0.5.1
+61 silly currentTree │ └── minimist@0.0.8
+61 silly currentTree ├── moment@2.15.0
+61 silly currentTree ├── morgan@1.7.0
+61 silly currentTree ├── ms@0.7.1
+61 silly currentTree ├── negotiator@0.6.1
+61 silly currentTree ├── node-uuid@1.4.7
+61 silly currentTree ├── normalize-path@2.0.1
+61 silly currentTree ├── number-is-nan@1.0.0
+61 silly currentTree ├── object-assign@1.0.0
+61 silly currentTree ├── object.omit@2.0.0
+61 silly currentTree ├── on-finished@2.3.0
+61 silly currentTree ├── on-headers@1.0.1
+61 silly currentTree ├── os-homedir@1.0.1
+61 silly currentTree ├── os-tmpdir@1.0.1
+61 silly currentTree ├── osenv@0.1.3
+61 silly currentTree ├── parse-glob@3.0.4
+61 silly currentTree ├── parseurl@1.3.1
+61 silly currentTree ├── path-to-regexp@0.1.7
+61 silly currentTree ├── pg-connection-string@0.1.3
+61 silly currentTree ├── pool2@1.3.5
+61 silly currentTree ├── preserve@0.2.0
+61 silly currentTree ├── proxy-addr@1.1.2
+61 silly currentTree ├── qs@6.2.0
+61 silly currentTree ├── randomatic@1.1.5
+61 silly currentTree ├── range-parser@1.2.0
+61 silly currentTree ├── raw-body@2.1.7
+61 silly currentTree ├── readable-stream@1.1.14
+61 silly currentTree ├── rechoir@0.6.2
+61 silly currentTree ├── regex-cache@0.4.3
+61 silly currentTree ├── repeat-element@1.1.2
+61 silly currentTree ├── repeat-string@1.5.4
+61 silly currentTree ├── repeating@1.1.3
+61 silly currentTree ├── resolve-dir@0.1.1
+61 silly currentTree ├── resolve@1.1.7
+61 silly currentTree ├── send@0.14.1
+61 silly currentTree ├── serve-static@1.11.1
+61 silly currentTree ├── setprototypeof@1.0.1
+61 silly currentTree ├── simple-backoff@1.0.0
+61 silly currentTree ├── statuses@1.3.0
+61 silly currentTree ├── string_decoder@0.10.31
+61 silly currentTree ├── strip-ansi@3.0.1
+61 silly currentTree ├── supports-color@2.0.0
+61 silly currentTree ├── tildify@1.0.0
+61 silly currentTree ├── topo@1.1.0
+61 silly currentTree ├── type-is@1.6.13
+61 silly currentTree ├── typedarray@0.0.6
+61 silly currentTree ├── unpipe@1.0.0
+61 silly currentTree ├── user-home@1.1.1
+61 silly currentTree ├── utils-merge@1.0.0
+61 silly currentTree ├── v8flags@2.0.11
+61 silly currentTree ├── vary@1.1.0
+61 silly currentTree ├── which@1.2.11
+61 silly currentTree └── xtend@4.0.1
+62 silly idealTree server@1.0.0
+62 silly idealTree ├── accepts@1.3.3
+62 silly idealTree ├── angular-offline@0.1.0
+62 silly idealTree ├── ansi-regex@2.0.0
+62 silly idealTree ├── ansi-styles@2.2.1
+62 silly idealTree ├── arr-diff@2.0.0
+62 silly idealTree ├── arr-flatten@1.0.1
+62 silly idealTree ├── array-flatten@1.1.1
+62 silly idealTree ├── array-unique@0.2.1
+62 silly idealTree ├── async@1.5.2
+62 silly idealTree ├── base64-url@1.3.2
+62 silly idealTree ├── base64url@1.0.6
+62 silly idealTree ├── basic-auth@1.0.4
+62 silly idealTree ├── bluebird@3.4.6
+62 silly idealTree ├── body-parser@1.15.2
+62 silly idealTree ├── braces@1.8.5
+62 silly idealTree ├── buffer-equal-constant-time@1.0.1
+62 silly idealTree ├── bytes@2.4.0
+62 silly idealTree ├── camelcase-keys@1.0.0
+62 silly idealTree ├── camelcase@1.2.1
+62 silly idealTree ├── chalk@1.1.3
+62 silly idealTree ├── commander@2.9.0
+62 silly idealTree ├── concat-stream@1.4.10
+62 silly idealTree ├── content-disposition@0.5.1
+62 silly idealTree ├── content-type@1.0.2
+62 silly idealTree ├── cookie-signature@1.0.6
+62 silly idealTree ├── cookie@0.3.1
+62 silly idealTree ├── core-util-is@1.0.2
+62 silly idealTree ├── cors@2.8.1
+62 silly idealTree ├── debug@2.2.0
+62 silly idealTree ├── depd@1.1.0
+62 silly idealTree ├── destroy@1.0.4
+62 silly idealTree ├── detect-file@0.1.0
+62 silly idealTree ├── double-ended-queue@2.1.0-0
+62 silly idealTree ├── ecdsa-sig-formatter@1.0.7
+62 silly idealTree ├── ee-first@1.1.1
+62 silly idealTree ├── encodeurl@1.0.1
+62 silly idealTree ├── escape-html@1.0.3
+62 silly idealTree ├── escape-string-regexp@1.0.5
+62 silly idealTree ├── etag@1.7.0
+62 silly idealTree ├── expand-brackets@0.1.5
+62 silly idealTree ├── expand-range@1.8.2
+62 silly idealTree ├── expand-tilde@1.2.2
+62 silly idealTree ├─┬ express-jwt@5.0.0
+62 silly idealTree │ └── jsonwebtoken@6.2.0
+62 silly idealTree ├── express-unless@0.3.0
+62 silly idealTree ├── express@4.14.0
+62 silly idealTree ├── extend@3.0.0
+62 silly idealTree ├── extglob@0.3.2
+62 silly idealTree ├── filename-regex@2.0.0
+62 silly idealTree ├── fill-range@2.2.3
+62 silly idealTree ├── finalhandler@0.5.0
+62 silly idealTree ├── findup-sync@0.4.2
+62 silly idealTree ├── flagged-respawn@0.3.2
+62 silly idealTree ├── for-in@0.1.5
+62 silly idealTree ├── for-own@0.1.4
+62 silly idealTree ├── forwarded@0.1.0
+62 silly idealTree ├── fresh@0.3.0
+62 silly idealTree ├── fs-exists-sync@0.1.0
+62 silly idealTree ├── fullcalendar@3.0.0
+62 silly idealTree ├── get-stdin@4.0.1
+62 silly idealTree ├── glob-base@0.3.0
+62 silly idealTree ├── glob-parent@2.0.0
+62 silly idealTree ├── global-modules@0.2.3
+62 silly idealTree ├── global-prefix@0.1.4
+62 silly idealTree ├── graceful-readlink@1.0.1
+62 silly idealTree ├── has-ansi@2.0.0
+62 silly idealTree ├── hashmap@2.0.6
+62 silly idealTree ├── hoek@2.16.3
+62 silly idealTree ├─┬ http-errors@1.5.0
+62 silly idealTree │ └── inherits@2.0.1
+62 silly idealTree ├── iconv-lite@0.4.13
+62 silly idealTree ├── indent-string@1.2.2
+62 silly idealTree ├── inherits@2.0.3
+62 silly idealTree ├── ini@1.3.4
+62 silly idealTree ├── interpret@0.6.6
+62 silly idealTree ├── ipaddr.js@1.1.1
+62 silly idealTree ├── is-buffer@1.1.4
+62 silly idealTree ├── is-dotfile@1.0.2
+62 silly idealTree ├── is-equal-shallow@0.1.3
+62 silly idealTree ├── is-extendable@0.1.1
+62 silly idealTree ├── is-extglob@1.0.0
+62 silly idealTree ├── is-finite@1.0.1
+62 silly idealTree ├── is-glob@2.0.1
+62 silly idealTree ├── is-number@2.1.0
+62 silly idealTree ├── is-posix-bracket@0.1.1
+62 silly idealTree ├── is-primitive@2.0.0
+62 silly idealTree ├── is-windows@0.2.0
+62 silly idealTree ├── isarray@0.0.1
+62 silly idealTree ├── isemail@1.2.0
+62 silly idealTree ├── isexe@1.1.2
+62 silly idealTree ├─┬ isobject@2.1.0
+62 silly idealTree │ └── isarray@1.0.0
+62 silly idealTree ├── joi@6.10.1
+62 silly idealTree ├── jquery@3.1.0
+62 silly idealTree ├── jsonwebtoken@7.1.9
+62 silly idealTree ├── jwa@1.1.3
+62 silly idealTree ├── jws@3.1.3
+62 silly idealTree ├── kind-of@3.0.4
+62 silly idealTree ├─┬ knex@0.11.10
+62 silly idealTree │ └── minimist@1.1.3
+62 silly idealTree ├── liftoff@2.2.5
+62 silly idealTree ├── lodash.once@4.1.1
+62 silly idealTree ├── lodash.set@4.3.2
+62 silly idealTree ├── lodash@4.15.0
+62 silly idealTree ├── map-obj@1.0.1
+62 silly idealTree ├── media-typer@0.3.0
+62 silly idealTree ├── meow@2.0.0
+62 silly idealTree ├── merge-descriptors@1.0.1
+62 silly idealTree ├── methods@1.1.2
+62 silly idealTree ├── micromatch@2.3.11
+62 silly idealTree ├── mime-db@1.23.0
+62 silly idealTree ├── mime-types@2.1.11
+62 silly idealTree ├── mime@1.3.4
+62 silly idealTree ├── minimist@1.2.0
+62 silly idealTree ├─┬ mkdirp@0.5.1
+62 silly idealTree │ └── minimist@0.0.8
+62 silly idealTree ├── moment@2.15.0
+62 silly idealTree ├── morgan@1.7.0
+62 silly idealTree ├── ms@0.7.1
+62 silly idealTree ├── negotiator@0.6.1
+62 silly idealTree ├── node-uuid@1.4.7
+62 silly idealTree ├── normalize-path@2.0.1
+62 silly idealTree ├── number-is-nan@1.0.0
+62 silly idealTree ├── object-assign@1.0.0
+62 silly idealTree ├── object.omit@2.0.0
+62 silly idealTree ├── on-finished@2.3.0
+62 silly idealTree ├── on-headers@1.0.1
+62 silly idealTree ├── os-homedir@1.0.1
+62 silly idealTree ├── os-tmpdir@1.0.1
+62 silly idealTree ├── osenv@0.1.3
+62 silly idealTree ├── parse-glob@3.0.4
+62 silly idealTree ├── parseurl@1.3.1
+62 silly idealTree ├── path-to-regexp@0.1.7
+62 silly idealTree ├── pg-connection-string@0.1.3
+62 silly idealTree ├── pool2@1.3.5
+62 silly idealTree ├── preserve@0.2.0
+62 silly idealTree ├── proxy-addr@1.1.2
+62 silly idealTree ├── qs@6.2.0
+62 silly idealTree ├── randomatic@1.1.5
+62 silly idealTree ├── range-parser@1.2.0
+62 silly idealTree ├── raw-body@2.1.7
+62 silly idealTree ├── readable-stream@1.1.14
+62 silly idealTree ├── rechoir@0.6.2
+62 silly idealTree ├── regex-cache@0.4.3
+62 silly idealTree ├── repeat-element@1.1.2
+62 silly idealTree ├── repeat-string@1.5.4
+62 silly idealTree ├── repeating@1.1.3
+62 silly idealTree ├── resolve-dir@0.1.1
+62 silly idealTree ├── resolve@1.1.7
+62 silly idealTree ├── send@0.14.1
+62 silly idealTree ├── serve-static@1.11.1
+62 silly idealTree ├── setprototypeof@1.0.1
+62 silly idealTree ├── simple-backoff@1.0.0
+62 silly idealTree ├── statuses@1.3.0
+62 silly idealTree ├── string_decoder@0.10.31
+62 silly idealTree ├── strip-ansi@3.0.1
+62 silly idealTree ├── supports-color@2.0.0
+62 silly idealTree ├── tildify@1.0.0
+62 silly idealTree ├── topo@1.1.0
+62 silly idealTree ├── type-is@1.6.13
+62 silly idealTree ├── typedarray@0.0.6
+62 silly idealTree ├── unpipe@1.0.0
+62 silly idealTree ├── user-home@1.1.1
+62 silly idealTree ├── utils-merge@1.0.0
+62 silly idealTree ├── v8flags@2.0.11
+62 silly idealTree ├── vary@1.1.0
+62 silly idealTree ├── which@1.2.11
+62 silly idealTree └── xtend@4.0.1
+63 silly generateActionsToTake Starting
+64 silly install generateActionsToTake
+65 silly generateActionsToTake Finishing
+66 silly diffTrees action count 1
+67 silly diffTrees add angular-offline@0.1.0
+68 silly decomposeActions action count 8
+69 silly decomposeActions fetch angular-offline@0.1.0
+70 silly decomposeActions extract angular-offline@0.1.0
+71 silly decomposeActions test angular-offline@0.1.0
+72 silly decomposeActions preinstall angular-offline@0.1.0
+73 silly decomposeActions build angular-offline@0.1.0
+74 silly decomposeActions install angular-offline@0.1.0
+75 silly decomposeActions postinstall angular-offline@0.1.0
+76 silly decomposeActions finalize angular-offline@0.1.0
+77 silly executeActions Starting
+78 silly install executeActions
+79 silly doSerial global-install 0
+80 silly doParallel fetch 1
+81 verbose correctMkdir /Users/Jess/.npm/_locks correctMkdir not in flight; initializing
+82 verbose lock using /Users/Jess/.npm/_locks/staging-856bb2f1b0fdcad3.lock for /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging
+83 silly doParallel extract 1
+84 silly extract angular-offline@0.1.0
+85 verbose unbuild node_modules/.staging/angular-offline-1e595e22
+86 silly gentlyRm /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22 is being purged from base /Users/Jess/Desktop/workspace/capstone/code/server
+87 verbose gentlyRm don't care about contents; nuking /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22
+88 verbose tar unpack /Users/Jess/.npm/angular-offline/0.1.0/package.tgz
+89 verbose tar unpacking to /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22
+90 silly gentlyRm /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22 is being purged
+91 verbose gentlyRm don't care about contents; nuking /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22
+92 silly gunzTarPerm modes [ '755', '644' ]
+93 silly gunzTarPerm extractEntry package.json
+94 silly gunzTarPerm extractEntry .npmignore
+95 silly gunzTarPerm extractEntry README.md
+96 silly gunzTarPerm extractEntry test.js
+97 silly gunzTarPerm extractEntry Gruntfile.js
+98 silly gunzTarPerm extractEntry angular-offline.js
+99 silly gunzTarPerm extractEntry angular-offline.min.js
+100 silly gunzTarPerm extractEntry karma.conf.js
+101 silly gunzTarPerm extractEntry bower.json
+102 silly gunzTarPerm extractEntry example/app.js
+103 silly gunzTarPerm extractEntry example/index.js
+104 silly gunzTarPerm extractEntry example/index.html
+105 silly gunzTarPerm extractEntry .travis.yml
+106 silly gunzTarPerm extractEntry angular-offline.min.js.map
+107 silly gentlyRm /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22/node_modules is being purged
+108 verbose gentlyRm don't care about contents; nuking /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22/node_modules
+109 silly doParallel preinstall 1
+110 silly preinstall angular-offline@0.1.0 /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22
+111 info lifecycle angular-offline@0.1.0~preinstall: angular-offline@0.1.0
+112 silly lifecycle angular-offline@0.1.0~preinstall: no script for preinstall, continuing
+113 silly doReverseSerial remove 0
+114 silly doSerial move 0
+115 silly doSerial finalize 1
+116 silly finalize /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/angular-offline
+117 silly doSerial build 1
+118 silly build angular-offline@0.1.0
+119 info linkStuff angular-offline@0.1.0
+120 silly linkStuff angular-offline@0.1.0 has /Users/Jess/Desktop/workspace/capstone/code/server/node_modules as its parent node_modules
+121 verbose linkBins angular-offline@0.1.0
+122 verbose linkMans angular-offline@0.1.0
+123 silly doSerial global-link 0
+124 silly doParallel update-linked 0
+125 silly doSerial install 1
+126 silly install angular-offline@0.1.0 /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging/angular-offline-1e595e22
+127 info lifecycle angular-offline@0.1.0~install: angular-offline@0.1.0
+128 verbose lifecycle angular-offline@0.1.0~install: unsafe-perm in lifecycle true
+129 verbose lifecycle angular-offline@0.1.0~install: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/Jess/Desktop/workspace/capstone/code/server/node_modules/angular-offline/node_modules/.bin:/Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.bin:/usr/local/bin:/Users/Jess/.rvm/gems/ruby-2.1.5/bin:/Users/Jess/.rvm/gems/ruby-2.1.5@global/bin:/Users/Jess/.rvm/rubies/ruby-2.1.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Jess/.rvm/bin
+130 verbose lifecycle angular-offline@0.1.0~install: CWD: /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/angular-offline
+131 silly lifecycle angular-offline@0.1.0~install: Args: [ '-c', 'bower install' ]
+132 info lifecycle angular-offline@0.1.0~install: Failed to exec install script
+133 verbose unlock done using /Users/Jess/.npm/_locks/staging-856bb2f1b0fdcad3.lock for /Users/Jess/Desktop/workspace/capstone/code/server/node_modules/.staging
+134 silly rollbackFailedOptional Starting
+135 silly rollbackFailedOptional Finishing
+136 silly runTopLevelLifecycles Starting
+137 silly runTopLevelLifecycles Finishing
+138 silly install printInstalled
+139 warn server@1.0.0 No description
+140 warn server@1.0.0 No repository field.
+141 verbose stack Error: angular-offline@0.1.0 install: `bower install`
+141 verbose stack spawn ENOENT
+141 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:33:16)
+141 verbose stack     at emitTwo (events.js:106:13)
+141 verbose stack     at ChildProcess.emit (events.js:191:7)
+141 verbose stack     at maybeClose (internal/child_process.js:852:16)
+141 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+142 verbose pkgid angular-offline@0.1.0
+143 verbose cwd /Users/Jess/Desktop/workspace/capstone/code/server
+144 error Darwin 15.0.0
+145 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "angular-offline"
+146 error node v6.3.1
+147 error npm  v3.10.3
+148 error file sh
+149 error code ELIFECYCLE
+150 error errno ENOENT
+151 error syscall spawn
+152 error angular-offline@0.1.0 install: `bower install`
+152 error spawn ENOENT
+153 error Failed at the angular-offline@0.1.0 install script 'bower install'.
+153 error Make sure you have the latest version of node.js and npm installed.
+153 error If you do, this is most likely a problem with the angular-offline package,
+153 error not with npm itself.
+153 error Tell the author that this fails on your system:
+153 error     bower install
+153 error You can get information on how to open an issue for this project with:
+153 error     npm bugs angular-offline
+153 error Or if that isn't available, you can get their info via:
+153 error     npm owner ls angular-offline
+153 error There is likely additional logging output above.
+154 verbose exit [ 1, true ]

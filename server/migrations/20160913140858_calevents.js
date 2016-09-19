@@ -3,10 +3,13 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('calevents', function(table){
     table.increments();
-    table.string('title');
-    table.string('startdate');
-    table.string('enddate');
-
+    table.date('date');
+    table.string('client_name');
+    table.string('starttime_hr');
+    table.string('starttime_min');
+    table.string('endtime_hr');
+    table.string('endtime_min');
+    table.string('services');
   });
 };
 
