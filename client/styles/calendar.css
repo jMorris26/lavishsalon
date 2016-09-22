@@ -1,9 +1,11 @@
+
+
 .fc-day-number {
 	font-size: 0.25em;
 }
 
 .fc-day-header {
-	font-size: 0.2em;
+	font-size: 0.15em;
 	text-align: center;
 	border-bottom: none;
 	width: 0%;
@@ -36,8 +38,8 @@ h2 {
 	float: none;
 }
 
-#footer {
-	z-index: 1;
+.fc-slats .fc-time {
+	font-size: 1em;
 }
 
 .fc-content-skeleton tr {
@@ -99,7 +101,7 @@ h2 {
 	width: 100%;
 }
 
-#dialog {
+#dialog, #view-dialog, #edit-dialog, #areyousure-dialog {
 	background-color: rgb(66, 72, 76);
 	border: 6px solid #78D5D7;
 	z-index: 1;
@@ -154,8 +156,11 @@ h2 {
 }
 
 .fc-content .fc-time {
-	font-size: 0.75em;
-	text-overflow: ellipsis;
+	font-size: 0.5em;
+}
+
+.fc-content {
+		text-overflow: ellipsis;
 }
 
 /*.fc-widget-content {
@@ -179,6 +184,10 @@ h2 {
 
 .fc-content {
 	overflow: hidden;
+}
+
+#footer {
+	z-index: 1;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~ MOBILE ~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -206,6 +215,7 @@ h2 {
 	.fc-button-group {
 		width: 90vw;
 		font-size: 1.75em;
+		z-index: 2;
 	}
 }
 
@@ -230,5 +240,6 @@ h2 {
 	.fc-button-group {
 		width: 90vw;
 		font-size: 1.75em;
+		z-index: 2;
 	}
 }

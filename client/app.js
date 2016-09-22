@@ -34,9 +34,9 @@ app.config(function($routeProvider){
     // controllerAs: 'sc'
   })
   .when('/admin', {
-    templateUrl: 'partials/admin/adminlogin.html'
-    // controller: 'AdminLoginController',
-    // controllerAs: 'alc'
+    templateUrl: 'partials/admin/adminlogin.html',
+    controller: 'AdminLoginController',
+    controllerAs: 'alc'
   })
   .when('/admin/welcome', {
     templateUrl: 'partials/admin/welcome.html'
@@ -68,21 +68,35 @@ app.directive('slider', [function(){
 app.directive('date', ['$document', function($document){
   return {
     templateUrl: 'partials/datepicker.html',
-    link: function(){
+    scope: {
+      datethingy: '='
+    },
+    link: function(scope, element, attrs, ngModel){
+
+
       $( "#datepicker" ).datepicker({
+          onSelect: updateDate,
           beforeShowDay: function(date) {
           var day = date.getDay();
           //var today = $document[0].getElementByClass("ui-datepicker-today");
-
           //if(day >= today){
             return [(day !== 0)];
         //  }
 
-
-
             // TODO: make sure client cannot select a past date
         }
+
       });
+
+      function updateDate(date) {
+        scope.$apply(function(){
+          console.log(date);
+          scope.datethingy.date = date;
+        });
+
+      }
+
+
     }
   };
 }]);
@@ -110,7 +124,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
         header: {
           left: 'title',
-          right: 'prev,today,next,agendaDay,basicWeek,month'
+          right: 'prev,today,next,agendaDay,agendaWeek,month'
         },
 
         allDaySlot: false,
@@ -123,28 +137,141 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
         displayEventEnd: true,
 
-        editable: true,
+        //editable: true,
 
-        defaultView: 'basicWeek',
+        defaultView: 'agendaWeek',
 
-        //this.events[i].title =
-        //events: [],
+        eventClick: function(calEvent) {
 
+            // console.log('Client: ' + calEvent.title);
+            // console.log('Date: ' + calEvent.date);
+            // console.log('End: ' + calEvent.end);
+
+            $('#view-dialog').dialog({
+              width: '75%',
+              display: true,
+              show: 'fade',
+              hide: 'fade'
+            });
+
+            var viewClient = $document[0].getElementById('view-client-name');
+            viewClient.innerHTML = calEvent.title;
+            var viewDate = $document[0].getElementById('view-client-date');
+            viewDate.innerHTML = calEvent.date;
+            var viewService = $document[0].getElementById('view-client-service');
+            viewService.innerHTML = calEvent.services;
+            var viewStart = $document[0].getElementById('view-client-starttime');
+            viewStart.innerHTML = calEvent.justtimestart;
+            var viewEnd = $document[0].getElementById('view-client-endtime');
+            viewEnd.innerHTML = calEvent.justtimeend;
+
+            $("#close").click(function(){
+              $(this).closest('.ui-dialog-content').dialog('close');
+            });
+
+            $("#youaresure_delete").click(function(){
+              // TODO: this button needs to delete the event in the database
+
+              $(this).closest('.ui-dialog-content').dialog('close');
+              $('#areyousure-dialog').dialog({
+                width: '75%',
+                display: true,
+                show: 'fade',
+                hide: 'fade',
+              });
+
+
+              $("#close_delete").click(function(){
+                $(this).closest('.ui-dialog-content').dialog('close');
+              });
+
+              $("#deleteEvent").click(function(){
+
+              //console.log('calEvent: ', calEvent._id);
+              var data = {
+                id: calEvent._id
+              };
+              $http.delete('http://localhost:3000/admin/welcome/'+ calEvent._id, data)
+              .then(function(data){
+                console.log(data);
+                $('#calendar').fullCalendar('refetchEvents');
+              }, function(err){
+                console.log(err);
+              });
+              $(this).closest('.ui-dialog-content').dialog('close');
+            });
+          });
+
+            $('#editEvent').click(function(){
+              $(this).closest('.ui-dialog-content').dialog('close');
+              $('#edit-dialog').dialog({
+                width: '75%',
+                display: true,
+                show: 'fade',
+                hide: 'fade',
+              });
+
+              var clientEditName = $document[0].getElementById('client_name_edit');
+              clientEditName.value = calEvent.title;
+              var clientEditService = $document[0].getElementById('edit_services');
+              clientEditService.value = calEvent.services;
+              var clientEditStartHr = $document[0].getElementById('edit_starttime_hr');
+              clientEditStartHr.value = calEvent.starttime_hr;
+              var clientEditStartMin = $document[0].getElementById('edit_starttime_min');
+              clientEditStartMin.value = calEvent.starttime_min;
+              var clientEditEndHr = $document[0].getElementById('edit_endtime_hr');
+              clientEditEndHr.value = calEvent.endtime_hr;
+              var clientEditEndMin = $document[0].getElementById('edit_endtime_min');
+              clientEditEndMin.value = calEvent.endtime_min;
+
+              var clientEditDate = $document[0].getElementById('edit-client-date');
+              clientEditDate.value = calEvent.date;
+
+              $("#cancel").click(function(){
+                $(this).closest('.ui-dialog-content').dialog('close');
+              });
+
+              $("#close_edit").click(function(){
+                $(this).closest('.ui-dialog-content').dialog('close');
+              });
+
+              $('#editEventButton').click(function(){
+                //TODO: this button needs to edit the event in the database
+                console.log('calEvent: ', calEvent);
+
+                var data = {
+                  id: calEvent.id,
+                  date: $document[0].getElementById('edit-client-date').value,
+                  client_name: $document[0].getElementById('client_name_edit').value,
+                  starttime_hr: $document[0].getElementById('edit_starttime_hr').value,
+                  starttime_min: $document[0].getElementById('edit_starttime_min').value,
+                  endtime_hr: $document[0].getElementById('edit_endtime_hr').value,
+                  endtime_min: $document[0].getElementById('edit_endtime_min').value,
+                  services: $document[0].getElementById('edit_services').value
+                };
+                $http.post('http://localhost:3000/admin/welcome/'+ calEvent._id, data)
+                .then(function(data){
+                  console.log(data);
+                  $('#calendar').fullCalendar('refetchEvents');
+                }, function(err){
+                  console.log(err);
+                });
+                $(this).closest('.ui-dialog-content').dialog('close');
+              });
+
+
+            });
+
+        },
 
         events: 'http://localhost:3000/admin/welcome',
 
         refetchEvents: 'http://localhost:3000/admin/welcome',
 
-        eventRender: function(event, element) {
-                // element.qtip({
-                //     content: event.description
-                // });
-            },
-
         dayClick: function(date, jsEvent, view) {
 
-          console.log(date.format());
-          console.log('doc', $document);
+          // console.log(date.format());
+          // console.log('doc', $document);
           var client_name = $document[0].getElementById("client_name");
           var starttime_hr = $document[0].getElementById("starttime_hr");
           var starttime_min = $document[0].getElementById("starttime_min");

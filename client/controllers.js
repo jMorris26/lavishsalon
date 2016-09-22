@@ -20,11 +20,7 @@ app.controller('controller', ['$http', '$window', '$location', function($http, $
     });
   };
 
-  vm.logout = function(){
-    delete $window.sessionStorage.token;
-    vm.message = 'Log out successful!!!';
-    $location.url('/');
-  };
+
 
   vm.restricted = function(){
     $http.get('http://localhost:3000/admin/welcome')
@@ -43,6 +39,7 @@ app.controller('controller', ['$http', '$window', '$location', function($http, $
 app.controller('BookController', ['$http', '$location', function($http, $location){
   var vm = this;
   vm.form = {};
+  vm.form.services = {};
   vm.showAvailable = false;
   vm.buttonClick = function(path){
     console.log(vm.form);
@@ -58,4 +55,18 @@ app.controller('BookController', ['$http', '$location', function($http, $locatio
       });
 
   };
+}]);
+
+app.controller('AdminLoginController', ['$http', '$window', '$location', function($http, $window, $location){
+  var vm = this;
+  if(!$window.sessionStorage.token){
+    $location.url('/admin');
+  }
+
+  vm.logout = function(){
+    delete $window.sessionStorage.token;
+    vm.message = 'Log out successful!!!';
+    $location.url('/');
+  };
+
 }]);

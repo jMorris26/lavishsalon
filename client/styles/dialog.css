@@ -1,0 +1,37 @@
+#view-client-name {
+  margin-bottom: 0.5em;
+}
+
+#view-client-service {
+  font-style: italic;
+  margin-bottom: 2em;
+}
+
+#view-dialog {
+  z-index: 99;
+}
+
+.editEvent {
+	background-color: #78D5D7;
+	width: 45%;
+	float: left;
+	border: none;
+}
+
+.deleteEvent {
+  background-color: #FAF8D4;
+  width: 100%;
+  margin: 0 auto;
+  float: left;
+  border: none;
+}
+
+.view-client {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.red {
+  color: rgb(255, 150, 150);
+  text-align: center;
+}

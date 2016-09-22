@@ -1,12 +1,12 @@
 <!-- <h1>You logged in!</h1> -->
 
-<div class="row thankyou">
+<div class="row thankyou" ng-controller="AdminLoginController as alc">
 
   <calendar></calendar>
 
-  <div ng-controller="controller as c">
-    <input type="submit" name="logout" class="submit login" value="Log Out" ng-click="c.logout()"/>
+  <div>
+    <input type="submit" name="logout" class="submit login" value="Log Out" ng-click="alc.logout()"/>
 
-    <h1>{{ c.message }}</h1>
+    <!-- <h1>{{ c.message }}</h1> -->
   </div>
 </div>
