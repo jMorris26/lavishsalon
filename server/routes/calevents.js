@@ -58,6 +58,7 @@ router.get('/', function(req, res){
   });
 });
 
+//below is for posting
 router.post('/', function(req, res){
   //console.log(req.body);
   knex('calevents').insert({
@@ -78,9 +79,12 @@ router.post('/', function(req, res){
   });
 });
 
+
+//below is for editing
 router.post('/:id', function(req, res){
-  console.log('*********', req.body);
-  knex('calevents').update({
+  console.log('*********', req.params.id, + ' ' + req.body.client_name);
+  knex('calevents').where({id: req.params.id})
+  .update({
     date: req.body.date,
     client_name: req.body.client_name,
     starttime_hr: req.body.starttime_hr,
@@ -89,7 +93,6 @@ router.post('/:id', function(req, res){
     endtime_min: req.body.endtime_min,
     services: req.body.services
   })
-  .where({id: req.params.id})
   .returning('*')
   .then(function(data){
     console.log('Edit data? ', data);
@@ -102,6 +105,7 @@ router.post('/:id', function(req, res){
 
 router.delete('/:id', function(req, res){
   //console.log(req.body);
+  console.log('ID: ', req.params.id);
   knex('calevents').where({id: req.params.id}).del()
   .then(function(data){
     console.log(data);

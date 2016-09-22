@@ -142,7 +142,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
         defaultView: 'agendaWeek',
 
         eventClick: function(calEvent) {
-
+            console.log('eventClick', calEvent.id);
             // console.log('Client: ' + calEvent.title);
             // console.log('Date: ' + calEvent.date);
             // console.log('End: ' + calEvent.end);
@@ -189,9 +189,9 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
               //console.log('calEvent: ', calEvent._id);
               var data = {
-                id: calEvent._id
+                id: calEvent.id
               };
-              $http.delete('http://localhost:3000/admin/welcome/'+ calEvent._id, data)
+              $http.delete('http://localhost:3000/admin/welcome/'+ data.id, data)
               .then(function(data){
                 console.log(data);
                 $('#calendar').fullCalendar('refetchEvents');
@@ -203,6 +203,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
           });
 
             $('#editEvent').click(function(){
+              console.log('#editEvent', calEvent.id);
               $(this).closest('.ui-dialog-content').dialog('close');
               $('#edit-dialog').dialog({
                 width: '75%',
@@ -237,7 +238,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
               $('#editEventButton').click(function(){
                 //TODO: this button needs to edit the event in the database
-                console.log('calEvent: ', calEvent);
+                console.log('#editEventButton', calEvent.id);
 
                 var data = {
                   id: calEvent.id,
@@ -249,7 +250,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
                   endtime_min: $document[0].getElementById('edit_endtime_min').value,
                   services: $document[0].getElementById('edit_services').value
                 };
-                $http.post('http://localhost:3000/admin/welcome/'+ calEvent._id, data)
+                $http.post('http://localhost:3000/admin/welcome/'+ data.id, data)
                 .then(function(data){
                   console.log(data);
                   $('#calendar').fullCalendar('refetchEvents');
@@ -316,8 +317,8 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
               };
 
               $http.post('http://localhost:3000/admin/welcome', data)
-              .then(function(data){
-                console.log(data);
+              .then(function(elephant){
+                console.log(elephant);
                 $('#calendar').fullCalendar('refetchEvents');
               }, function(err){
                 console.log(err);

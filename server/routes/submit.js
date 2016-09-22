@@ -17,44 +17,46 @@ router.post('/', function(req, res){
 
   //styles object, key is name in database, equal to string
   var styles = {
-    "womenscut" : "Women's Cut & Style",
-    "haircut" : "Great Haircut", //...
-    "manscut" : "Gentleman's Shampoo & Cut",
-    "childscut" : "Child's Cut",
-    "shampoo" : "Shampoo & Blowout",
-    "ironworks" : "Iron Works",
-    "formal" : "Formal Style",
-    "tapein" : "Tape In Extension Application",
-    "remove_ext" : "Removal of Extensions",
-    "root_touch" : "Root Touch Up",
-    "allcolor" : "All Over Color",
-    "manscolor" : "Gentleman's Color",
-    "accentcolor" : "Accent Color",
-    "part_hilight" : "Partial Highlight",
-    "half_hilight" : "Half Head Highlight",
-    "full_hilight" : "Full Head Highlight",
-    "corrective" : "Corrective Color",
-    "base_perm" : "Basic Perm",
-    "spiral_perm" : "Spiral Perm",
-    "eyebrow_wax" : "Eyebrow Wax",
-    "lip_wax" : "Lip and Chin Wax",
-    "underam_wax" : "Underarm Wax",
-    "bikini_wax" : "Bikini Wax",
-    "redken" : "Redken® Chemistry Shots",
-    "miracle" : "Miracle Hair Max",
-    "ind_pedi" : "Indulgent Pedicure",
-    "gel_pedi" : "Gel Polish Pedicure",
-    "trad_mani" : "Traditional Manicure",
-    "gel_mani" : "Gel Polish Manicure",
-    "design" : "Design Add-On",
-    "polish_change" : "Polish Change",
-    "eyelash_ext" : "Eyelash Extension Application",
-    "eyelash_fill" : "Eyelash Extension Fill"
+    "womenscut" : " Women's Cut & Style",
+    "haircut" : " Great Haircut",
+    "manscut" : " Gentleman's Shampoo & Cut",
+    "childscut" : " Child's Cut",
+    "shampoo" : " Shampoo & Blowout",
+    "ironworks" : " Iron Works",
+    "formal" : " Formal Style",
+    "tapein" : " Tape In Extension Application",
+    "remove_ext" : " Removal of Extensions",
+    "root_touch" : " Root Touch Up",
+    "allcolor" : " All Over Color",
+    "manscolor" : " Gentleman's Color",
+    "accentcolor" : " Accent Color",
+    "part_hilight" : " Partial Highlight",
+    "half_hilight" : " Half Head Highlight",
+    "full_hilight" : " Full Head Highlight",
+    "corrective" : " Corrective Color",
+    "base_perm" : " Basic Perm",
+    "spiral_perm" : " Spiral Perm",
+    "eyebrow_wax" : " Eyebrow Wax",
+    "lip_wax" : " Lip and Chin Wax",
+    "underam_wax" : " Underarm Wax",
+    "bikini_wax" : " Bikini Wax",
+    "redken" : " Redken® Chemistry Shots",
+    "miracle" : " Miracle Hair Max",
+    "ind_pedi" : " Indulgent Pedicure",
+    "gel_pedi" : " Gel Polish Pedicure",
+    "trad_mani" : " Traditional Manicure",
+    "gel_mani" : " Gel Polish Manicure",
+    "design" : " Design Add-On",
+    "polish_change" : " Polish Change",
+    "eyelash_ext" : " Eyelash Extension Application",
+    "eyelash_fill" : " Eyelash Extension Fill"
   };
 
   for(var s in req.body.services){
     if(styles[s]){
-      serviceArr.push(styles[s]);
+      if(req.body.services[s] === true){
+        serviceArr.push(styles[s]);
+      }
     }
   }
 
