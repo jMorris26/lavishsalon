@@ -89,15 +89,23 @@
 
     <br /><br />
 
-    <div class="row checkAv">
-      <label ng-show="!bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to show availability)</label>
-      <label ng-show="bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to hide availability)</label>
-    </div>
+    <hr />
+    <h4 class="turq"><i>See the calendar below to check potential availability!</i></h4>
+    <hr />
 
-      <clientcalendar ng-show="bc.showAvailable"></clientcalendar>
+
+    <div ng-class="" ng-hide="bc.showAvailable">
+      <clientcalendar></clientcalendar>
+    </div>
+       <!-- ng-show="bc.showAvailable" -->
       <!-- TODO: this calendar should ONLY show uneditable data without client names, preferrably in week form -->
 
     <br /><br />
+
+    <!-- <div class="row checkAv">
+      <label ng-show="bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to show availability)</label>
+      <label ng-show="!bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to hide availability)</label>
+    </div> -->
 
   <hr />
   <h3 class="turq">Choose Your Services</h3>

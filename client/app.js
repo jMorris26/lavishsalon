@@ -73,9 +73,10 @@ app.directive('date', ['$document', function($document){
     },
     link: function(scope, element, attrs, ngModel){
 
-
+      var dateToday = new Date();
       $( "#datepicker" ).datepicker({
           onSelect: updateDate,
+          minDate: dateToday,
           beforeShowDay: function(date) {
           var day = date.getDay();
           //var today = $document[0].getElementByClass("ui-datepicker-today");
@@ -132,7 +133,11 @@ app.directive('clientcalendar', [function(){
 
         defaultView: 'agendaWeek',
 
+
         events: 'http://localhost:3000/book',
+
+        color: 'rgba(66, 72, 76, 0.5)',     // an option!
+        textColor: 'yellow',
 
         refetchEvents: 'http://localhost:3000/book',
 
@@ -154,6 +159,10 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
       scope.currentCalendarEvent = {};
       scope.newDate;
+
+      //var dialog = $document[0].getElementById("#dialog");
+
+
       scope.addNewEventHandler = function(){
         scope.currentCalendarEvent.date = scope.newDate;
         console.log('current Cal Date', scope.currentCalendarEvent.date);
@@ -280,6 +289,10 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
             scope.currentCalendarEvent = calEvent;
           });
 
+
+          if($("#view-dialog").dialog({display: true})){
+            $(".fc-state-active").css({"z-index":"-10"});
+          }
           //   console.log('eventClick', calEvent.id);
           //   // console.log('Client: ' + calEvent.title);
           //   // console.log('Date: ' + calEvent.date);
@@ -291,6 +304,8 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
               show: 'fade',
               hide: 'fade'
             });
+
+
           //
           //
           //   var viewClient = $document[0].getElementById('view-client-name');
@@ -407,6 +422,11 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
         refetchEvents: 'http://localhost:3000/admin/welcome',
 
         dayClick: function(date, jsEvent, view) {
+
+          if($("dialog").dialog({display: true})){
+            $(".fc-state-active").css({"z-index":"-10"});
+          }
+
 
           scope.newDate = date.format();
           console.log('scope date', scope.newDate);

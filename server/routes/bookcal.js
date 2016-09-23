@@ -35,7 +35,7 @@ router.get('/', function(req, res){
         justTimeEnd = justTimeEnd[1];
         justTimeEnd = justTimeEnd.slice(0, -3);
 
-      
+
       clientViewAppts.justtimestart = justTimeStart;
       clientViewAppts.justtimeend = justTimeEnd;
       clientViewAppts.start = start;
