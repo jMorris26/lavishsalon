@@ -90,10 +90,11 @@
     <br /><br />
 
     <div class="row checkAv">
-      <label ng-click="bc.showAvailable = !bc.showAvailable" id="checkavailable">(Click here to show availability)</label>
+      <label ng-show="!bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to show availability)</label>
+      <label ng-show="bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to hide availability)</label>
     </div>
 
-      <calendar ng-show="bc.showAvailable" id="clientcalendarshow"></calendar>
+      <clientcalendar ng-show="bc.showAvailable"></clientcalendar>
       <!-- TODO: this calendar should ONLY show uneditable data without client names, preferrably in week form -->
 
     <br /><br />
@@ -272,20 +273,22 @@
         <label class="serviceSelect">
         <input name="eyelash_fill" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyelash_fill"/>Eyelash Extension Fill</label>
       </div>
-      <br /><br /><br /><br /><br /><br />
+      <br /><br />
 
       <label>Comments</label><br />
         <textarea name="comments" placeholder="(optional)" ng-model="bc.form.comments"></textarea>
 
-        <br /><br /><br /><br /><br /><br />
-
-      <input type="submit" name="Submit" class="submit" ng-click="bc.buttonClick('/submit')" >
-
-      <br /><br />
+        <br /><br />
 
       <p class="warning">
         * Please note that your requested time may not be available. You will receive an email from Lavish Salon confirming your appointment.
       </p>
+
+      <br /><br />
+
+      <input type="submit" name="Submit" class="submit" ng-click="bc.buttonClick('/submit')" >
+
+      <br /><br /><br /><br /> <br /><br />
 
       <!-- <input type="hidden" name="_next" value="/#/submit" />
       <input type="hidden" name="_subject" value="Confirming Your Appointment with Lavish Salon" />

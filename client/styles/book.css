@@ -124,7 +124,7 @@ a {
   text-align: center;
 }
 
-#checkavailable {
+.checkavailable {
   color: rgb(66, 72, 76);
   opacity: 0.7;
   text-align: center;

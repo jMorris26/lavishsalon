@@ -35,3 +35,11 @@
   color: rgb(255, 150, 150);
   text-align: center;
 }
+
+#newDialog-form {
+  z-index: 1000;
+}
+
+button .fc-agendaWeek-button .fc-button .fc-state-default .fc-state-active .fc-button-group{
+	z-index: 0;
+}

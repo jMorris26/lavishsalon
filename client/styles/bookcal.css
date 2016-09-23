@@ -1,0 +1,12 @@
+#clientcalendarshow button {
+  width: 29%;
+  margin-right: 0;
+}
+
+#clientcalendarshow .fc-button-group {
+  margin-right: -4.2em;
+}
+
+#clientcalendarshow h2 {
+  margin-left: -0.5em;
+}

@@ -101,18 +101,152 @@ app.directive('date', ['$document', function($document){
   };
 }]);
 
-// app.directive('clientcalendar', [function(){
-//   $( "#checkavailable" ).click(function() {
-//     $( "#clientcalendarshow" ).slideDown( "slow", function() {
-//       // Animation complete.
-//     });
-//   });
-// }]);
+app.directive('clientcalendar', [function(){
+
+  return {
+    templateUrl: 'partials/bookcal.html',
+    link: function(){
+      $('#clientcalendarshow').fullCalendar({
+
+        businessHours:
+              {
+                  dow: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+                  start: '09:00', // 9am
+                  end: '17:00' // 5pm
+              },
+
+        header: {
+          left: 'title',
+          right: 'prev,today,next'
+        },
+
+        allDaySlot: false,
+
+        minTime: '09:00:00',
+
+        maxTime: '17:00:00',
+
+        // displayEventTime: true,
+        //
+        // displayEventEnd: true,
+
+        defaultView: 'agendaWeek',
+
+        events: 'http://localhost:3000/book',
+
+        refetchEvents: 'http://localhost:3000/book',
+
+
+      });
+      // $( "#checkavailable" ).click(function() {
+      //   $( "#clientcalendarshow" ).slideDown( "slow", function() {
+      //     // Animation complete.
+      //   });
+      // });
+    }
+  };
+}]);
 
 app.directive('calendar', ['$http', '$document', function($http, $document){
   return {
     templateUrl: 'partials/admin/calendar.html',
-    link: function(){
+    link: function(scope){
+
+      scope.currentCalendarEvent = {};
+      scope.newDate;
+      scope.addNewEventHandler = function(){
+        scope.currentCalendarEvent.date = scope.newDate;
+        console.log('current Cal Date', scope.currentCalendarEvent.date);
+
+
+        // TODO: throw an error if the fields are empty
+
+
+        //if(scope.currentCalendarEvent.client_name !== null){
+
+          console.log('You are trying to create a new event', scope.currentCalendarEvent);
+          $http.post('http://localhost:3000/admin/welcome', scope.currentCalendarEvent)
+          .then(function(data){
+            console.log(data);
+            $('#calendar').fullCalendar('refetchEvents');
+          }, function(err){
+            console.log(err);
+          });
+          $("#dialog").closest('.ui-dialog-content').dialog('close');
+        //   } else {
+        //   $("#fillOutFields").show({display: true});
+        // }
+
+
+      };
+
+      scope.editEventHandler = function(){
+        console.log(scope.currentCalendarEvent);
+        $('#edit-dialog').dialog({
+            width: '75%',
+            display: true,
+            show: 'fade',
+            hide: 'fade',
+          });
+        $('#view-dialog').closest('.ui-dialog-content').dialog('close');
+      };
+
+      scope.actuallyEditEventHandler = function(){
+        console.log('you are trying to edit');
+        console.log('this is the current scope: ', scope.currentCalendarEvent);
+
+        $http.post('http://localhost:3000/admin/welcome/'+ scope.currentCalendarEvent.id, scope.currentCalendarEvent)
+        .then(function(data){
+          console.log(data);
+          $('#calendar').fullCalendar('refetchEvents');
+        }, function(err){
+          console.log(err);
+        });
+
+        $('#editEventButton').closest('.ui-dialog-content').dialog('close');
+
+      };
+
+      scope.closeAddEventHandler = function(){
+        $("#cancel").closest('.ui-dialog-content').css({"display": "none", "hide": "fade"});
+        console.log('are you getting here');
+      };
+
+      scope.closeViewEventHandler = function(){
+        $('#close').closest('.ui-dialog-content').dialog('close');
+      };
+
+      scope.closeEditEventHandler = function(){
+        $("#close_edit").closest('.ui-dialog-content').dialog('close');
+      };
+
+      scope.closeDeleteEventHandler = function(){
+        $("#close_delete").closest('.ui-dialog-content').dialog('close');
+      };
+      // scope.closeNewEvent = function(){
+      //   $("#cancel").closest('.ui-dialog-content').dialog('close');
+      //   console.log('close the new event');
+      // };
+
+      scope.deleteEventHandler = function(){
+        console.log('is it working');
+        console.log('id of deleted: ', scope.currentCalendarEvent.id);
+        $http.delete('http://localhost:3000/admin/welcome/'+ scope.currentCalendarEvent.id)
+        .then(function(data){
+          console.log(data);
+          $('#calendar').fullCalendar('refetchEvents');
+        }, function(err){
+          console.log(err);
+        });
+
+        $("#deleteEvent").closest('.ui-dialog-content').dialog('close');
+
+      };
+
+
+
+
+      //TODO create button handlers
 
       $('#calendar').fullCalendar({
         // businessHours:
@@ -129,9 +263,9 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
         allDaySlot: false,
 
-        minTime: '06:00:00',
+        minTime: '07:00:00',
 
-        maxTime: '20:00:00',
+        maxTime: '19:00:00',
 
         displayEventTime: true,
 
@@ -142,33 +276,38 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
         defaultView: 'agendaWeek',
 
         eventClick: function(calEvent) {
-            console.log('eventClick', calEvent.id);
-            // console.log('Client: ' + calEvent.title);
-            // console.log('Date: ' + calEvent.date);
-            // console.log('End: ' + calEvent.end);
+          scope.$apply(function(){
+            scope.currentCalendarEvent = calEvent;
+          });
 
+          //   console.log('eventClick', calEvent.id);
+          //   // console.log('Client: ' + calEvent.title);
+          //   // console.log('Date: ' + calEvent.date);
+          //   // console.log('End: ' + calEvent.end);
+          //
             $('#view-dialog').dialog({
               width: '75%',
               display: true,
               show: 'fade',
               hide: 'fade'
             });
-
-            var viewClient = $document[0].getElementById('view-client-name');
-            viewClient.innerHTML = calEvent.title;
-            var viewDate = $document[0].getElementById('view-client-date');
-            viewDate.innerHTML = calEvent.date;
-            var viewService = $document[0].getElementById('view-client-service');
-            viewService.innerHTML = calEvent.services;
-            var viewStart = $document[0].getElementById('view-client-starttime');
-            viewStart.innerHTML = calEvent.justtimestart;
-            var viewEnd = $document[0].getElementById('view-client-endtime');
-            viewEnd.innerHTML = calEvent.justtimeend;
-
-            $("#close").click(function(){
-              $(this).closest('.ui-dialog-content').dialog('close');
-            });
-
+          //
+          //
+          //   var viewClient = $document[0].getElementById('view-client-name');
+          //   viewClient.innerHTML = calEvent.title;
+          //   var viewDate = $document[0].getElementById('view-client-date');
+          //   viewDate.innerHTML = calEvent.date;
+          //   var viewService = $document[0].getElementById('view-client-service');
+          //   viewService.innerHTML = calEvent.services;
+          //   var viewStart = $document[0].getElementById('view-client-starttime');
+          //   viewStart.innerHTML = calEvent.justtimestart;
+          //   var viewEnd = $document[0].getElementById('view-client-endtime');
+          //   viewEnd.innerHTML = calEvent.justtimeend;
+          //
+          //   $("#close").click(function(){
+          //     $(this).closest('.ui-dialog-content').dialog('close');
+          //   });
+          //
             $("#youaresure_delete").click(function(){
               // TODO: this button needs to delete the event in the database
 
@@ -179,89 +318,87 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
                 show: 'fade',
                 hide: 'fade',
               });
-
-
-              $("#close_delete").click(function(){
-                $(this).closest('.ui-dialog-content').dialog('close');
-              });
-
-              $("#deleteEvent").click(function(){
-
-              //console.log('calEvent: ', calEvent._id);
-              var data = {
-                id: calEvent.id
-              };
-              $http.delete('http://localhost:3000/admin/welcome/'+ data.id, data)
-              .then(function(data){
-                console.log(data);
-                $('#calendar').fullCalendar('refetchEvents');
-              }, function(err){
-                console.log(err);
-              });
-              $(this).closest('.ui-dialog-content').dialog('close');
-            });
+          //
+          //
+          //
+          //
+          //     $("#deleteEvent").click(function(){
+          //
+          //     //console.log('calEvent: ', calEvent._id);
+          //     var data = {
+          //       id: calEvent.id
+          //     };
+          //     $http.delete('http://localhost:3000/admin/welcome/'+ data.id, data)
+          //     .then(function(data){
+          //       console.log(data);
+          //       $('#calendar').fullCalendar('refetchEvents');
+          //     }, function(err){
+          //       console.log(err);
+          //     });
+          //     $(this).closest('.ui-dialog-content').dialog('close');
+          //   });
           });
 
-            $('#editEvent').click(function(){
-              console.log('#editEvent', calEvent.id);
-              $(this).closest('.ui-dialog-content').dialog('close');
-              $('#edit-dialog').dialog({
-                width: '75%',
-                display: true,
-                show: 'fade',
-                hide: 'fade',
-              });
-
-              var clientEditName = $document[0].getElementById('client_name_edit');
-              clientEditName.value = calEvent.title;
-              var clientEditService = $document[0].getElementById('edit_services');
-              clientEditService.value = calEvent.services;
-              var clientEditStartHr = $document[0].getElementById('edit_starttime_hr');
-              clientEditStartHr.value = calEvent.starttime_hr;
-              var clientEditStartMin = $document[0].getElementById('edit_starttime_min');
-              clientEditStartMin.value = calEvent.starttime_min;
-              var clientEditEndHr = $document[0].getElementById('edit_endtime_hr');
-              clientEditEndHr.value = calEvent.endtime_hr;
-              var clientEditEndMin = $document[0].getElementById('edit_endtime_min');
-              clientEditEndMin.value = calEvent.endtime_min;
-
-              var clientEditDate = $document[0].getElementById('edit-client-date');
-              clientEditDate.value = calEvent.date;
-
-              $("#cancel").click(function(){
-                $(this).closest('.ui-dialog-content').dialog('close');
-              });
-
-              $("#close_edit").click(function(){
-                $(this).closest('.ui-dialog-content').dialog('close');
-              });
-
-              $('#editEventButton').click(function(){
-                //TODO: this button needs to edit the event in the database
-                console.log('#editEventButton', calEvent.id);
-
-                var data = {
-                  id: calEvent.id,
-                  date: $document[0].getElementById('edit-client-date').value,
-                  client_name: $document[0].getElementById('client_name_edit').value,
-                  starttime_hr: $document[0].getElementById('edit_starttime_hr').value,
-                  starttime_min: $document[0].getElementById('edit_starttime_min').value,
-                  endtime_hr: $document[0].getElementById('edit_endtime_hr').value,
-                  endtime_min: $document[0].getElementById('edit_endtime_min').value,
-                  services: $document[0].getElementById('edit_services').value
-                };
-                $http.post('http://localhost:3000/admin/welcome/'+ data.id, data)
-                .then(function(data){
-                  console.log(data);
-                  $('#calendar').fullCalendar('refetchEvents');
-                }, function(err){
-                  console.log(err);
-                });
-                $(this).closest('.ui-dialog-content').dialog('close');
-              });
-
-
-            });
+            // $('#editEvent').click(function(){
+            //   console.log('#editEvent', calEvent.id);
+            //   $(this).closest('.ui-dialog-content').dialog('close');
+            //   $('#edit-dialog').dialog({
+            //     width: '75%',
+            //     display: true,
+            //     show: 'fade',
+            //     hide: 'fade',
+            //   });
+            //
+            //   var clientEditName = $document[0].getElementById('client_name_edit');
+            //   clientEditName.value = calEvent.title;
+            //   var clientEditService = $document[0].getElementById('edit_services');
+            //   clientEditService.value = calEvent.services;
+            //   var clientEditStartHr = $document[0].getElementById('edit_starttime_hr');
+            //   clientEditStartHr.value = calEvent.starttime_hr;
+            //   var clientEditStartMin = $document[0].getElementById('edit_starttime_min');
+            //   clientEditStartMin.value = calEvent.starttime_min;
+            //   var clientEditEndHr = $document[0].getElementById('edit_endtime_hr');
+            //   clientEditEndHr.value = calEvent.endtime_hr;
+            //   var clientEditEndMin = $document[0].getElementById('edit_endtime_min');
+            //   clientEditEndMin.value = calEvent.endtime_min;
+            //
+            //   var clientEditDate = $document[0].getElementById('edit-client-date');
+            //   clientEditDate.value = calEvent.date;
+            //
+            //   $("#cancel").click(function(){
+            //     $(this).closest('.ui-dialog-content').dialog('close');
+            //   });
+            //
+            //   $("#close_edit").click(function(){
+            //     $(this).closest('.ui-dialog-content').dialog('close');
+            //   });
+            //
+            //   $('#editEventButton').click(function(){
+            //     //TODO: this button needs to edit the event in the database
+            //     console.log('#editEventButton', calEvent.id);
+            //
+            //     var data = {
+            //       id: calEvent.id,
+            //       date: $document[0].getElementById('edit-client-date').value,
+            //       client_name: $document[0].getElementById('client_name_edit').value,
+            //       starttime_hr: $document[0].getElementById('edit_starttime_hr').value,
+            //       starttime_min: $document[0].getElementById('edit_starttime_min').value,
+            //       endtime_hr: $document[0].getElementById('edit_endtime_hr').value,
+            //       endtime_min: $document[0].getElementById('edit_endtime_min').value,
+            //       services: $document[0].getElementById('edit_services').value
+            //     };
+            //     $http.post('http://localhost:3000/admin/welcome/'+ data.id, data)
+            //     .then(function(data){
+            //       console.log(data);
+            //       $('#calendar').fullCalendar('refetchEvents');
+            //     }, function(err){
+            //       console.log(err);
+            //     });
+            //     $(this).closest('.ui-dialog-content').dialog('close');
+            //   });
+            //
+            //
+            // });
 
         },
 
@@ -271,14 +408,16 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
         dayClick: function(date, jsEvent, view) {
 
+          scope.newDate = date.format();
+          console.log('scope date', scope.newDate);
           // console.log(date.format());
           // console.log('doc', $document);
-          var client_name = $document[0].getElementById("client_name");
-          var starttime_hr = $document[0].getElementById("starttime_hr");
-          var starttime_min = $document[0].getElementById("starttime_min");
-          var endtime_hr = $document[0].getElementById("endtime_hr");
-          var endtime_min = $document[0].getElementById("endtime_min");
-          var services = $document[0].getElementById("services");
+          // var client_name = $document[0].getElementById("client_name");
+          // var starttime_hr = $document[0].getElementById("starttime_hr");
+          // var starttime_min = $document[0].getElementById("starttime_min");
+          // var endtime_hr = $document[0].getElementById("endtime_hr");
+          // var endtime_min = $document[0].getElementById("endtime_min");
+          // var services = $document[0].getElementById("services");
           var originalContent;
 
           $("#dialog").dialog({
@@ -296,39 +435,47 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
             });
 
-          $("#cancel").click(function(){
-            $(this).closest('.ui-dialog-content').dialog('close');
+            $("#client_name").val("");
+            $("#starttime_hr").val("");
+            $("#starttime_min").val("");
+            $("#endtime_hr").val("");
+            $("#endtime_min").val("");
+            $("#services").val("");
 
-          });
 
-          $("#addEvent").click(function(){
-            console.log('Date: ' + date.format());
+          // $("#cancel").click(function(){
+          //   $(this).closest('.ui-dialog-content').dialog('close');
+          //
+          // });
 
-            if(client_name.value !== '' || starttime_hr.value !== '' || starttime_min.value !== '' || endtime_hr.value !== '' || endtime_min.value !== '' || services.value !== ''){
-              $(this).closest('.ui-dialog-content').dialog('close');
-              var data = {
-                date: date.format(),
-                client_name: client_name.value,
-                starttime_hr: starttime_hr.value,
-                starttime_min: starttime_min.value,
-                endtime_hr: endtime_hr.value,
-                endtime_min: endtime_min.value,
-                services: services.value
-              };
+          // $("#addEvent").click(function(){
+          //   console.log('Date: ' + date.format());
 
-              $http.post('http://localhost:3000/admin/welcome', data)
-              .then(function(elephant){
-                console.log(elephant);
-                $('#calendar').fullCalendar('refetchEvents');
-              }, function(err){
-                console.log(err);
-              });
+            // if(client_name.value !== '' || starttime_hr.value !== '' || starttime_min.value !== '' || endtime_hr.value !== '' || endtime_min.value !== '' || services.value !== ''){
+            //   $(this).closest('.ui-dialog-content').dialog('close');
+            //   var data = {
+            //     date: date.format(),
+            //     client_name: client_name.value,
+            //     starttime_hr: starttime_hr.value,
+            //     starttime_min: starttime_min.value,
+            //     endtime_hr: endtime_hr.value,
+            //     endtime_min: endtime_min.value,
+            //     services: services.value
+            //   };
 
-            } else {
-              $("#fillOutFields").show({display: true}); //displays the validation error
-            }
+              // $http.post('http://localhost:3000/admin/welcome', data)
+              // .then(function(elephant){
+              //   console.log(elephant);
+              //   $('#calendar').fullCalendar('refetchEvents');
+              // }, function(err){
+              //   console.log(err);
+              // });
 
-          });
+            // } else {
+            //   $("#fillOutFields").show({display: true}); //displays the validation error
+            // }
+
+          //});
         //  alert('Clicked on: ' + date.format());
          //
         //  alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);

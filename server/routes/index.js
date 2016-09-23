@@ -11,6 +11,8 @@ router.post('/welcome', function(req, res, next){
     return;
   }
 
+  // TODO: replace this info with env password / username
+
   var profile = {
     first_name: 'Jane',
     last_name: 'Doe',

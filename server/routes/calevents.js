@@ -16,6 +16,7 @@ router.get('/', function(req, res){
     var start;
     var end;
 
+    console.log('data!', data);
     for(var i = 0; i < data.length; i++){
       var appts = {};
       output = JSON.stringify(data[i].date);
@@ -29,6 +30,7 @@ router.get('/', function(req, res){
 
       justTimeStart = start.split('T');
         justTimeStart = justTimeStart[1];
+        console.log('justTimeStart',justTimeStart);
         justTimeStart = justTimeStart.slice(0, -3);
 
       justTimeEnd = end.split('T');
