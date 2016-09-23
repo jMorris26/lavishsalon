@@ -18,6 +18,37 @@
 	border: none;
 }
 
+#editEvent, #close, #youaresure_delete, #deleteEvent, #close_delete, #editEventButton, #close_edit, #addEvent, #cancel {
+  font-size: 2em;
+}
+
+#addEvent, #cancel, #editEventButton, #close_edit {
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+#client_name, #starttime_hr, #starttime_min, #endtime_hr, #endtime_min, #services, #client_name_edit, #edit-client-date, #edit_starttime_hr, #edit_starttime_min, #edit_endtime_hr, #edit_endtime_min, #edit_services {
+  font-size: 2em;
+}
+
+.dialogLabel {
+  font-size: 3em;
+  margin-top: 0.5em;
+}
+
+.dialogTitle {
+  font-size: 4em;
+}
+
+#youaresure_delete {
+  margin-bottom: 2em;
+}
+
+#deleteEvent, #close_delete {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 .deleteEvent {
   background-color: #FAF8D4;
   width: 100%;
@@ -34,6 +65,7 @@
 .red {
   color: rgb(255, 150, 150);
   text-align: center;
+  font-size: 4em;
 }
 
 #newDialog-form {
