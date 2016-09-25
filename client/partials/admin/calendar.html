@@ -3,16 +3,16 @@
 
 
 <div id="dialog" title="Add an Appointment">
-  <form id="newDialog-form">
+  <form id="newDialog-form" name="addAppt">
     <br />
-    <h1 class="dialogLabel dialogTitle">Add an Appointment<br />{{ currentCalendarEvent.date }}</h1>
+    <h1 class="dialogLabel dialogTitle">Add an Appointment</h1>
 
     <label class="dialogLabel">Client Name</label><br />
-      <input type="text" id="client_name" name="client_name" ng-model="currentCalendarEvent.client_name" /><br /><br />
+      <input type="text" id="client_name" name="client_name" ng-model="currentCalendarEvent.client_name"/><br /><br />
 
 
       <label class="dialogLabel">Select Start Time:</label><br />
-        <select name="hour" id="starttime_hr" ng-model="currentCalendarEvent.starttime_hr">
+        <select name="hour" id="starttime_hr" ng-model="currentCalendarEvent.starttime_hr" >
           <option value="">Hour</option>
           <option value="T08:">08</option>
           <option value="T09:">09</option>
@@ -27,7 +27,7 @@
           <option value="T18:">06</option>
         </select>
 
-        <select name="minute" id="starttime_min" ng-model="currentCalendarEvent.starttime_min">
+        <select name="minute" id="starttime_min" ng-model="currentCalendarEvent.starttime_min" >
           <option value="">Minute</option>
           <option value="00:00">00</option>
           <option value="05:00">05</option>
@@ -45,7 +45,7 @@
 
 
     <label class="dialogLabel">Select End Time:</label><br />
-      <select name="hour" id="endtime_hr" ng-model="currentCalendarEvent.endtime_hr">
+      <select name="hour" id="endtime_hr" ng-model="currentCalendarEvent.endtime_hr" >
         <option value="">Hour</option>
         <option value="T08:">08</option>
         <option value="T09:">09</option>
@@ -60,7 +60,7 @@
         <option value="T18:">06</option>
       </select>
 
-      <select name="minute" id="endtime_min" ng-model="currentCalendarEvent.endtime_min">
+      <select name="minute" id="endtime_min" ng-model="currentCalendarEvent.endtime_min" >
         <option value="">Minute</option>
         <option value="00:00">00</option>
         <option value="05:00">05</option>
@@ -81,10 +81,10 @@
       <input type="text" id="endtime" name="endtime"/><br /><br /> -->
 
     <label class="dialogLabel">Services Requested:</label><br />
-      <input type="text" id="services" name="services" ng-model="currentCalendarEvent.services"/><br /><br /><br /><br />
+      <input type="text" id="services" name="services" ng-model="currentCalendarEvent.services" /><br /><br /><br /><br />
 
-    <input type="submit" value="Add Event" class="addEvent" id="addEvent" ng-click="addNewEventHandler()"/>
-    <input type="submit" value="Cancel" class="cancel" id="cancel" ng-click="closeAddEventHandler()"/>
+    <input type="submit" value="Add Event" class="addEvent" id="addEvent" ng-click="addNewEventHandler();resetForm()"/>
+    <input type="submit" value="Cancel" class="cancel" id="cancel" ng-click="closeAddEventHandler();resetForm"/>
     <br /><br /><br /><br />
 
     <p id="fillOutFields">*Please fill out all fields</p>
