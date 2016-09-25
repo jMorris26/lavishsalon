@@ -10,3 +10,80 @@
 #clientcalendarshow h2 {
   margin-left: -0.5em;
 }
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px){
+
+  #requestappt, #servicespg {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .textinput {
+    font-size: 1em;
+  }
+
+  .bookform h3 {
+    font-size: 3em;
+  }
+
+  .fc-left h2 {
+    font-size: 3em;
+    width:100%;
+  }
+
+  .fc-left {
+    width: 100%;
+  }
+
+  .fc-right {
+    width: 100%;
+  }
+
+  .fc-button-group {
+    width: 90%;
+    padding-left: 17%;
+  }
+
+  .breaks {
+    display: none;
+  }
+
+  .largerp {
+    font-size:2em;
+    font-style: italic;
+  }
+
+  .selectday {
+    width: 45%;
+    float: left;
+  }
+
+  .selecttime {
+    width: 45%;
+    float: right;
+  }
+
+  .selecthr, .selectmin {
+    padding: 0.5em;
+    font-size:1.5em;
+  }
+
+  .timeofday {
+    font-size: 1.5em;
+  }
+
+  .radio {
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+  }
+
+  .hide {
+    display: none;
+  }
+
+}

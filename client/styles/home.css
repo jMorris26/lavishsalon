@@ -31,6 +31,18 @@ body {
   display: none;
 }
 
+.desktopButton {
+	display: none;
+}
+
+.logo-art-wrapper img {
+	display: none;
+}
+
+#topart {
+	display: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -112,7 +124,7 @@ strong {
 
 @media (min-width:1025px){
   #logo {
-    margin-left: 3em;
+    margin-left: 5em;
     width: 25%;
   }
 
@@ -122,31 +134,87 @@ strong {
   }
 
   .navbar {
-    margin-top: -12.74em;
+    margin-top: -13.5em;
     width: 68%;
-    margin-right: 3em;
-    margin-left: 2em;
+    margin-right: -1em;
+    margin-left: 3em;
     float: right;
     height: 2em;
   }
 
   #slideshow {
-    margin-top: -20em;
-    margin-left: 6em;
+    margin-top: -28em;
   }
 
   #slideshow img {
-    width: 50%;
-    margin: 0 auto;
+    width: 30%;
+		border: 3px solid #78D5D7;
+		border-bottom-left-radius: 2em;
+		border-bottom-right-radius: 2em;
+    margin-left: 2em;
+		margin-top: 7em;
   }
 
   .desktopIntro {
+		margin-top: 4em;
     display: block;
-    margin-left: 3em;
+    margin-left: 43%;
     color: rgba(255, 255, 255, 0.7);
-    width: 23%;
+    width: 40%;
     font-size: 1.5em;
-    text-align: right;
+    text-align: center;
     font-family: WalkwayBold, Arial, sans-serif;
   }
+
+	.desktopButton {
+		display: inline-block;
+		background-color: #78D5D7;
+		border: 3px solid #FAF8D4;
+		font-family: WalkwayBold, Arial, sans-serif;
+		font-size: 1em;
+		border-bottom-left-radius: 1em;
+		border-bottom-right-radius: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		color: rgb(66, 72, 76);
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+	}
+
+	.desktopButton:hover {
+		background-color: #FAF8D4;
+		border: 3px solid #78D5D7;
+	}
+
+	.buttonWrapper {
+		margin-left: 35%;
+		margin-top: 23%;
+		display: flex;
+	  justify-content: space-around;
+		position: fixed;
+	}
+
+	.logo-art-wrapper {
+		margin-left:53%;
+		margin-top:33%;
+		opacity: 0.2;
+	}
+
+	.logo-art-wrapper img {
+		display: inline;
+		position: fixed;
+		width: 20%;
+		margin: 0 auto;
+	}
+
+	#topart {
+		margin-left: 53%;
+		position: fixed;
+		display: inline;
+		width: 20%;
+		opacity: 0.2;
+		margin-top: -5em;
+	}
 }

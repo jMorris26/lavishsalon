@@ -1,101 +1,48 @@
-<h1 class="ourstory">Request an Appointment</h1>
+<h1 class="ourstory" id="requestappt">Request an Appointment</h1>
 
-<form class="" method="POST">
+<form class="bookform" method="POST">
      <!-- action="https://formspree.io/morris.jess26@gmail.com" -->
-  <hr />
-  <h3 class="turq">You</h3>
-  <hr />
-  <br />
-  <label>First Name</label><br />
-    <input type="text" name="fname" class="textinput" ng-model="bc.form.fname" required/>
 
-    <br /><br />
+    <div class="you">
+      <hr />
+      <h3 class="turq">You</h3>
+      <hr />
+      <br />
+      <label>First Name</label><br />
+        <input type="text" name="fname" class="textinput" ng-model="bc.form.fname" required/>
 
-  <label>Last Name</label><br />
-    <input type="text" name="lname" class="textinput" ng-model="bc.form.lname" required/>
+        <br /><br />
 
-    <br /><br />
+      <label>Last Name</label><br />
+        <input type="text" name="lname" class="textinput" ng-model="bc.form.lname" required/>
 
-  <label>Email</label><br />
-    <input type="email" name="email" class="textinput" ng-model="bc.form.email" required/>
+        <br /><br />
 
-    <br /><br />
+      <label>Email</label><br />
+        <input type="email" name="email" class="textinput" ng-model="bc.form.email" required/>
 
-  <label>Phone Number</label><br />
-    <input type="text" name="phone_num" class="textinput" ng-model="bc.form.phone_num" required/>
+        <br /><br />
 
-    <br /><br />
-    <br /><br />
-    <br /><br />
-    <br /><br />
+      <label>Phone Number</label><br />
+        <input type="text" name="phone_num" class="textinput" ng-model="bc.form.phone_num" required/>
+      </div>
 
 
-  <hr />
-  <h3 class="turq">Your Appointment</h3>
-  <hr />
+      <br /><br />
 
-  <br />
+    <div class="seecal">
 
-  <label>Select a Day</label><br/>
-  <date datethingy="bc.form"></date>
-
-  <!-- {{ bc.form.date }}
-  <hr />
-  {{ bc.form }} -->
-
-  <br /><br />
-
-  <label>Select a Time</label><br />
-    <select name="hour" ng-model="bc.form.hour">
-      <option value="">Hour</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-
-    <select name="minute" ng-model="bc.form.minute">
-      <option value="">Minute</option>
-      <option value="00">00</option>
-      <option value="05">05</option>
-      <option value="10">10</option>
-      <option value="15">15</option>
-      <option value="20">20</option>
-      <option value="25">25</option>
-      <option value="30">30</option>
-      <option value="35">35</option>
-      <option value="40">40</option>
-      <option value="45">45</option>
-      <option value="50">50</option>
-      <option value="55">55</option>
-    </select>
-
-    <div class="amORpm">
-      <label class="timeofday late">AM</label><input type="radio" name="amORpm" ng-model="bc.form.amORpm" value="am" class="radio" selected="true">
-    </div>
-    <div class="amORpm">
-      <label class="timeofday late">PM</label><input type="radio" name="amORpm" ng-model="bc.form.amORpm" value="pm" class="radio">
-    </div>
-
-    <br /><br /><br /><br />
-
-    <br /><br />
-
-    <hr />
-    <h4 class="turq"><i>See the calendar below to check potential availability!</i></h4>
-    <hr />
+      <hr />
+      <h4 class="turq"><i>See the calendar below to check potential availability! <span class="warning">*</span><br/>Then, select your date in the form continued below.</i></h4>
+      <hr />
 
 
-    <div ng-class="" ng-hide="bc.showAvailable">
-      <clientcalendar></clientcalendar>
+      <div ng-class="" ng-hide="bc.showAvailable">
+        <clientcalendar></clientcalendar>
+        <br />
+        <p class="warning largerp">* Blue boxes indicate time slots that are UNAVAILABLE</p>
+      </div>
+
     </div>
        <!-- ng-show="bc.showAvailable" -->
       <!-- TODO: this calendar should ONLY show uneditable data without client names, preferrably in week form -->
@@ -107,188 +54,273 @@
       <label ng-show="!bc.showAvailable" ng-click="bc.showAvailable = !bc.showAvailable" class="checkavailable">(Click here to hide availability)</label>
     </div> -->
 
+
+    <hr />
+    <h3 class="turq">Your Appointment</h3>
+    <hr />
+
+    <br />
+
+    <div class="selectday">
+      <label>Select a Day</label><br/>
+      <date datethingy="bc.form"></date>
+    </div>
+    <!-- {{ bc.form.date }}
+    <hr />
+    {{ bc.form }} -->
+
+    <div class="hide">
+      <br /><br />
+    </div>
+    <div class="selecttime">
+      <label>Select a Time</label><br />
+        <select name="hour" ng-model="bc.form.hour" class="selecthr">
+          <option value="">Hour</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+
+        <select name="minute" ng-model="bc.form.minute" class="selectmin">
+          <option value="">Minute</option>
+          <option value="00">00</option>
+          <option value="05">05</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+          <option value="35">35</option>
+          <option value="40">40</option>
+          <option value="45">45</option>
+          <option value="50">50</option>
+          <option value="55">55</option>
+        </select>
+
+        <div class="amORpm">
+          <label class="timeofday late">AM</label><input type="radio" name="amORpm" ng-model="bc.form.amORpm" value="am" class="radio" selected="true">
+        </div>
+        <div class="amORpm">
+          <label class="timeofday late">PM</label><input type="radio" name="amORpm" ng-model="bc.form.amORpm" value="pm" class="radio">
+        </div>
+      </div>
+
+    <br /><br /><br /><br />
+
+    <br /><br />
+
   <hr />
   <h3 class="turq">Choose Your Services</h3>
   <hr />
   <br />
 
-  <label>Cutting</label><br />
-
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input type="checkbox" class="servicecheck" name="womenscut" ng-model="bc.form.services.womenscut" value="Women's Cut & Style"/>Women's Cut & Style</label>
-    </div>
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input type="checkbox" class="servicecheck" name="haircut" ng-model="bc.form.services.haircut"/>Haircut <span class="smallprint">(with any chemical service)</span></label>
-    </div>
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input type="checkbox" class="servicecheck" name="manscut" ng-model="bc.form.services.manscut"/>Gentleman's Shampoo & Cut</label>
-    </div>
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input type="checkbox" class="servicecheck" name="childscut" ng-model="bc.form.services.childscut"/>Child's Cut</label>
-    </div>
-
-    <br /><br />
-
-  <label>Styling</label><br />
-
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input name="shampoo" type="checkbox" class="servicecheck" ng-model="bc.form.services.shampoo"/>Shampoo & Blowout</label>
-    </div>
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input name="ironworks" type="checkbox" class="servicecheck" ng-model="bc.form.services.ironworks"/>Iron Works <span class="smallprint">(curling & straightening)</span></label>
-    </div>
-    <div class="eachService">
-      <label class="serviceSelect">
-      <input name="formal" type="checkbox" class="servicecheck" ng-model="bc.form.services.formal"/>Formal Style</label>
-    </div>
-
-      <br /><br />
-
-    <label>Extensions</label><br />
+  <div class="cutting">
+    <label>Cutting</label><br />
 
       <div class="eachService">
         <label class="serviceSelect">
-        <input name="tapein" type="checkbox" class="servicecheck" ng-model="bc.form.services.tapein"/>Tape In Extension Application</label>
+        <input type="checkbox" class="servicecheck" name="womenscut" ng-model="bc.form.services.womenscut" value="Women's Cut & Style"/>Women's Cut & Style</label>
       </div>
       <div class="eachService">
         <label class="serviceSelect">
-        <input name="remove_ext" type="checkbox" class="servicecheck" ng-model="bc.form.services.remove_ext"/>Removal of Extensions</label>
+        <input type="checkbox" class="servicecheck" name="haircut" ng-model="bc.form.services.haircut"/>Haircut <span class="smallprint">(with any chemical service)</span></label>
+      </div>
+      <div class="eachService">
+        <label class="serviceSelect">
+        <input type="checkbox" class="servicecheck" name="manscut" ng-model="bc.form.services.manscut"/>Gentleman's Shampoo & Cut</label>
+      </div>
+      <div class="eachService">
+        <label class="serviceSelect">
+        <input type="checkbox" class="servicecheck" name="childscut" ng-model="bc.form.services.childscut"/>Child's Cut</label>
       </div>
 
       <br /><br />
+  </div>
 
-    <label>Color</label><br />
+  <div class="styling">
 
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="root_touch" type="checkbox" class="servicecheck" ng-model="bc.form.services.root_touch"/>Root Touch Up</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="allcolor" type="checkbox" class="servicecheck" ng-model="bc.form.services.allcolor"/>All Over Color</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="manscolor" type="checkbox" class="servicecheck" ng-model="bc.form.services.manscolor"/>Gentleman's Color</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="accentcolor" type="checkbox" class="servicecheck" ng-model="bc.form.services.accentcolor"/>Accent Color <span class="smallprint">(12 foils)</span></label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="part_hilight" type="checkbox" class="servicecheck" ng-model="bc.form.services.part_hilight"/>Partial Highlight</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="half_hilight" type="checkbox" class="servicecheck" ng-model="bc.form.services.half_hilight"/>Half Head Highlight</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="full_hilight" type="checkbox" class="servicecheck" ng-model="bc.form.services.full_hilight"/>Full Head Highlight</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="corrective" type="checkbox" class="servicecheck" ng-model="bc.form.services.corrective"/>Corrective Color</label>
-      </div>
-
-      <br /><br />
-
-    <label>Permanents</label><br />
+    <label>Styling</label><br />
 
       <div class="eachService">
         <label class="serviceSelect">
-        <input name="base_perm" type="checkbox" class="servicecheck" ng-model="bc.form.services.base_perm"/>Basic Perm</label>
+        <input name="shampoo" type="checkbox" class="servicecheck" ng-model="bc.form.services.shampoo"/>Shampoo & Blowout</label>
       </div>
       <div class="eachService">
         <label class="serviceSelect">
-        <input name="spiral_perm" type="checkbox" class="servicecheck" ng-model="bc.form.services.spiral_perm"/>Spiral Perm</label>
-      </div>
-
-      <br /><br />
-
-    <label>Waxing</label><br />
-
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="eyebrow_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyebrow_wax"/>Eyebrow Wax</label>
+        <input name="ironworks" type="checkbox" class="servicecheck" ng-model="bc.form.services.ironworks"/>Iron Works <span class="smallprint">(curling & straightening)</span></label>
       </div>
       <div class="eachService">
         <label class="serviceSelect">
-        <input name="lip_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.lip_wax"/>Lip and Chin Wax</label>
+        <input name="formal" type="checkbox" class="servicecheck" ng-model="bc.form.services.formal"/>Formal Style</label>
       </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="underam_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.underarm_wax"/>Underarm Wax</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="bikini_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.bikini_wax"/>Bikini Wax</label>
-      </div>
-
-      <br /><br />
-
-    <label>Conditioning Treatments</label><br />
-
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="redken" type="checkbox" class="servicecheck" ng-model="bc.form.services.redken"/>Redken® Chemistry Shots</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="miracle" type="checkbox" class="servicecheck" ng-model="bc.form.services.miracle"/>Miracle Hair Max</label>
-      </div>
-
-      <br /><br />
-
-    <label>Spa Services</label><br />
-
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="ind_pedi" type="checkbox" class="servicecheck" ng-model="bc.form.services.ind_pedi"/>Indulgent Pedicure</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="gel_pedi" type="checkbox" class="servicecheck" ng-model="bc.form.services.gel_pedi"/>Gel Polish Pedicure</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="trad_mani" type="checkbox" class="servicecheck" ng-model="bc.form.services.trad_mani"/>Traditional Manicure</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="gel_mani" type="checkbox" class="servicecheck" ng-model="bc.form.services.gel_mani"/>Gel Polish Manicure</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="design" type="checkbox" class="servicecheck" ng-model="bc.form.services.design"/>Design Add-On</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="polish_change" type="checkbox" class="servicecheck" ng-model="bc.form.services.polish_change"/>Polish Change</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="eyelash_ext" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyelash_ext"/>Eyelash Extension Application</label>
-      </div>
-      <div class="eachService">
-        <label class="serviceSelect">
-        <input name="eyelash_fill" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyelash_fill"/>Eyelash Extension Fill</label>
-      </div>
-      <br /><br />
-
-      <label>Comments</label><br />
-        <textarea name="comments" placeholder="(optional)" ng-model="bc.form.comments"></textarea>
 
         <br /><br />
+    </div>
 
-      <p class="warning">
+    <div class="extensions">
+
+      <label>Extensions</label><br />
+
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="tapein" type="checkbox" class="servicecheck" ng-model="bc.form.services.tapein"/>Tape In Extension Application</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="remove_ext" type="checkbox" class="servicecheck" ng-model="bc.form.services.remove_ext"/>Removal of Extensions</label>
+        </div>
+
+        <br /><br />
+    </div>
+
+    <div class="color">
+
+      <label>Color</label><br />
+
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="root_touch" type="checkbox" class="servicecheck" ng-model="bc.form.services.root_touch"/>Root Touch Up</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="allcolor" type="checkbox" class="servicecheck" ng-model="bc.form.services.allcolor"/>All Over Color</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="manscolor" type="checkbox" class="servicecheck" ng-model="bc.form.services.manscolor"/>Gentleman's Color</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="accentcolor" type="checkbox" class="servicecheck" ng-model="bc.form.services.accentcolor"/>Accent Color <span class="smallprint">(12 foils)</span></label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="part_hilight" type="checkbox" class="servicecheck" ng-model="bc.form.services.part_hilight"/>Partial Highlight</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="half_hilight" type="checkbox" class="servicecheck" ng-model="bc.form.services.half_hilight"/>Half Head Highlight</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="full_hilight" type="checkbox" class="servicecheck" ng-model="bc.form.services.full_hilight"/>Full Head Highlight</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="corrective" type="checkbox" class="servicecheck" ng-model="bc.form.services.corrective"/>Corrective Color</label>
+        </div>
+
+        <br /><br />
+    </div>
+
+    <div class="permanents">
+      <label>Permanents</label><br />
+
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="base_perm" type="checkbox" class="servicecheck" ng-model="bc.form.services.base_perm"/>Basic Perm</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="spiral_perm" type="checkbox" class="servicecheck" ng-model="bc.form.services.spiral_perm"/>Spiral Perm</label>
+        </div>
+
+        <br /><br />
+    </div>
+
+    <div class="waxing">
+      <label>Waxing</label><br />
+
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="eyebrow_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyebrow_wax"/>Eyebrow Wax</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="lip_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.lip_wax"/>Lip and Chin Wax</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="underam_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.underarm_wax"/>Underarm Wax</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="bikini_wax" type="checkbox" class="servicecheck" ng-model="bc.form.services.bikini_wax"/>Bikini Wax</label>
+        </div>
+
+        <br /><br />
+    </div>
+
+    <div class="conditioning">
+      <label>Conditioning Treatments</label><br />
+
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="redken" type="checkbox" class="servicecheck" ng-model="bc.form.services.redken"/>Redken® Chemistry Shots</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="miracle" type="checkbox" class="servicecheck" ng-model="bc.form.services.miracle"/>Miracle Hair Max</label>
+        </div>
+
+        <br /><br />
+    </div>
+
+    <div class="spa">
+      <label>Spa Services</label><br />
+
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="ind_pedi" type="checkbox" class="servicecheck" ng-model="bc.form.services.ind_pedi"/>Indulgent Pedicure</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="gel_pedi" type="checkbox" class="servicecheck" ng-model="bc.form.services.gel_pedi"/>Gel Polish Pedicure</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="trad_mani" type="checkbox" class="servicecheck" ng-model="bc.form.services.trad_mani"/>Traditional Manicure</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="gel_mani" type="checkbox" class="servicecheck" ng-model="bc.form.services.gel_mani"/>Gel Polish Manicure</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="design" type="checkbox" class="servicecheck" ng-model="bc.form.services.design"/>Design Add-On</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="polish_change" type="checkbox" class="servicecheck" ng-model="bc.form.services.polish_change"/>Polish Change</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="eyelash_ext" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyelash_ext"/>Eyelash Extension Application</label>
+        </div>
+        <div class="eachService">
+          <label class="serviceSelect">
+          <input name="eyelash_fill" type="checkbox" class="servicecheck" ng-model="bc.form.services.eyelash_fill"/>Eyelash Extension Fill</label>
+        </div>
+        <br /><br />
+    </div>
+
+    <div class="comments">
+        <label>Comments</label><br />
+          <textarea name="comments" placeholder="(optional)" ng-model="bc.form.comments"></textarea>
+
+          <br /><br />
+    </div>
+
+      <p class="warning largerp">
         * Please note that your requested time may not be available. You will receive an email from Lavish Salon confirming your appointment.
       </p>
 

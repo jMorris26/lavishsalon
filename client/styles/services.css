@@ -70,3 +70,12 @@ tbody {
 .service {
   padding-left: 40px;
 }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px) {
+
+  table {
+    width: 45%;
+  }
+}

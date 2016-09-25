@@ -31,3 +31,40 @@ h4 {
   margin-left: auto;
   margin-right: auto;
 }
+
+.iconart {
+  display: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px){
+
+  #map {
+    width: 30%;
+		border: 3px solid #78D5D7;
+		border-bottom-left-radius: 2em;
+		border-bottom-right-radius: 2em;
+    margin-left: 2em;
+		margin-top: -40em;
+  }
+
+  .contacthr {
+    display: none;
+  }
+
+  .contactinfo {
+    margin-left: 20%;
+    margin-top: 8em;
+  }
+
+  .contactinfo h4 {
+    text-align: center;
+  }
+
+  .iconart {
+    display: block;
+    margin-top: 12em;
+  }
+
+}

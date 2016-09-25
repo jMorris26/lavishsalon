@@ -18,26 +18,54 @@
   font-family: WalkwayBold, Arial, sans-serif;
 }
 
+#storyart, #storyarttop {
+  display: none;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 @media (min-width:1025px){
   .ourstory {
     margin-top: -1em;
+    margin-left: 45%;
+    width: 30%;
+    text-align: center;
 }
 
   #ourstorypic {
-    width: 55%;
-    float: right;
-    margin-right: 3em;
+    width: 30%;
+		border: 3px solid #78D5D7;
+		border-bottom-left-radius: 2em;
+		border-bottom-right-radius: 2em;
+    margin-left: 2em;
+		margin-top: -5em;
   }
 
   .about {
-    float: left;
-    text-align: right;
-    width: 37%;
-    margin-left: 2em;
-    margin-top: -45em;
-    font-size: 1.5em;
+    margin-top: -20em;
+		margin-bottom: 4em;
+    display: block;
+    margin-left: 40%;
     color: rgba(255, 255, 255, 0.7);
+    width: 40%;
+    font-size: 1.5em;
+    text-align: center;
+    font-family: WalkwayBold, Arial, sans-serif;
+  }
+
+  #storyart {
+    display: inline;
+    opacity: 0.2;
+    margin-left: 50%;
+    margin-top: -15em;
+    width: 20%;
+  }
+
+  #storyarttop {
+    display: inline;
+    opacity: 0.2;
+    margin-left: 50%;
+    width: 20%;
+    margin-top: -70em;
   }
 }
