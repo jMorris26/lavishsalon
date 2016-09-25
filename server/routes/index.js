@@ -6,7 +6,7 @@ var router = express.Router();
 var jwt = require('jsonwebtoken');
 
 router.post('/welcome', function(req, res, next){
-  if(!(req.body.username === 'jane.doe' && req.body.password === '1234')) {
+  if(!(req.body.username === process.env.ADMIN_USERNAME && req.body.password === process.env.ADMIN_PASSWORD)) {
     res.status(401).send({message: 'Incorrect username or password'});
     return;
   }
@@ -14,9 +14,9 @@ router.post('/welcome', function(req, res, next){
   // TODO: replace this info with env password / username
 
   var profile = {
-    first_name: 'Jane',
-    last_name: 'Doe',
-    email: 'jane@doe.com',
+    first_name: process.env.FIRSTNAME,
+    last_name: process.env.LASTNAME,
+    email: 'amandamherrington@gmail.com',
     id: 123
   };
 
