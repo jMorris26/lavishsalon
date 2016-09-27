@@ -123,12 +123,12 @@ app.directive('clientcalendar', [function(){
         defaultView: 'agendaWeek',
 
 
-        events: 'http://localhost:3000/book',
+        events: 'https://lavishsalon.herokuapp.com/book',
 
         color: 'rgba(66, 72, 76, 0.5)',     // an option!
         textColor: 'yellow',
 
-        refetchEvents: 'http://localhost:3000/book',
+        refetchEvents: 'https://lavishsalon.herokuapp.com/book',
 
 
       });
@@ -145,48 +145,55 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
       scope.currentCalendarEvent = {};
       scope.newDate;
 
-      scope.addNewEventHandler = function(){
-        scope.currentCalendarEvent.date = scope.newDate;
-        console.log('current Cal Date', scope.currentCalendarEvent.date);
+      if(scope.currentCalendarEvent.client_name !== null){
+        scope.addNewEventHandler = function(){
+          // console.log(e);
+          //e.stopPropagation();
+          scope.currentCalendarEvent.date = scope.newDate;
+          console.log('current Cal Date', scope.currentCalendarEvent.date);
 
 
-        // TODO: throw an error if the fields are empty
+          // TODO: throw an error if the fields are empty
+
+          //$(e.target).attr('disabled', 'disabled');
 
 
-        // if(scope.currentCalendarEvent.client_name && scope.currentCalendarEvent.starttime_hr && scope.currentCalendarEvent.starttime_min && scope.currentCalendarEvent.endttime_hr && scope.currentCalendarEvent.endttime_min){
+          // if(scope.currentCalendarEvent.client_name && scope.currentCalendarEvent.starttime_hr && scope.currentCalendarEvent.starttime_min && scope.currentCalendarEvent.endttime_hr && scope.currentCalendarEvent.endttime_min){
 
-          console.log('You are trying to create a new event', scope.currentCalendarEvent);
-          $http.post('http://localhost:3000/admin/welcome', scope.currentCalendarEvent)
-          .then(function(data){
-            console.log('this data', data);
-            $('#calendar').fullCalendar('refetchEvents');
+            console.log('You are trying to create a new event', scope.currentCalendarEvent);
+            $http.post('https://lavishsalon.herokuapp.com/admin/welcome', scope.currentCalendarEvent)
+            .then(function(data){
+              console.log('this data', data);
+              $('#calendar').fullCalendar('refetchEvents');
 
-          }, function(err){
-            console.log(err);
-          });
-          $("#dialog").closest('.ui-dialog-content').dialog('close');
-          console.log('Scope Obj:', scope.currentCalendarEvent);
-
-
-        // } else if(!scope.currentCalendarEvent.client_name || !scope.currentCalendarEvent.starttime_hr || !scope.currentCalendarEvent.starttime_min || !scope.currentCalendarEvent.endttime_hr || !scope.currentCalendarEvent.endttime_min){
-        //
-        //   $("#fillOutFields").css({"display": "block"});
-        //   console.log('current object? ', scope.currentCalendarEvent);
-        //   scope.addAppt.$setPristine();
-        // }
+            }, function(err){
+              console.log(err);
+            });
+            $("#dialog").closest('.ui-dialog-content').dialog('close');
+            console.log('Scope Obj:', scope.currentCalendarEvent);
 
 
-      };
+          // } else if(!scope.currentCalendarEvent.client_name || !scope.currentCalendarEvent.starttime_hr || !scope.currentCalendarEvent.starttime_min || !scope.currentCalendarEvent.endttime_hr || !scope.currentCalendarEvent.endttime_min){
+          //
+          //   $("#fillOutFields").css({"display": "block"});
+          //   console.log('current object? ', scope.currentCalendarEvent);
+          //   scope.addAppt.$setPristine();
+          // }
 
-      scope.resetForm = function(){
-        $("#client_name").val(null);
-        $("#starttime_hr").val(null);
-        $("#starttime_min").val(null);
-        $("#endtime_hr").val(null);
-        $("#endtime_min").val(null);
-        $("#services").val(null);
-        scope.addAppt.$setPristine();
-      };
+
+        };
+      }
+
+
+      // scope.resetForm = function(){
+      //   $("#client_name").val(null);
+      //   $("#starttime_hr").val(null);
+      //   $("#starttime_min").val(null);
+      //   $("#endtime_hr").val(null);
+      //   $("#endtime_min").val(null);
+      //   $("#services").val(null);
+      //   scope.addAppt.$setPristine();
+      // };
 
       scope.editEventHandler = function(){
         console.log(scope.currentCalendarEvent);
@@ -203,7 +210,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
         console.log('you are trying to edit');
         console.log('this is the current scope: ', scope.currentCalendarEvent);
 
-        $http.post('http://localhost:3000/admin/welcome/'+ scope.currentCalendarEvent.id, scope.currentCalendarEvent)
+        $http.post('https://lavishsalon.herokuapp.com/admin/welcome/'+ scope.currentCalendarEvent.id, scope.currentCalendarEvent)
         .then(function(data){
           console.log(data);
           $('#calendar').fullCalendar('refetchEvents');
@@ -235,7 +242,7 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
       scope.deleteEventHandler = function(){
         console.log('is it working');
         console.log('id of deleted: ', scope.currentCalendarEvent.id);
-        $http.delete('http://localhost:3000/admin/welcome/'+ scope.currentCalendarEvent.id)
+        $http.delete('https://lavishsalon.herokuapp.com/admin/welcome/'+ scope.currentCalendarEvent.id)
         .then(function(data){
           console.log(data);
           $('#calendar').fullCalendar('refetchEvents');
@@ -271,7 +278,10 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
         defaultView: 'agendaWeek',
 
-        eventClick: function(calEvent) {
+        eventClick: function(calEvent, jsEvent) {
+
+          jsEvent.stopPropagation();
+
           scope.$apply(function(){
             scope.currentCalendarEvent = calEvent;
           });
@@ -287,6 +297,18 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
               show: 'fade',
               hide: 'fade'
             });
+
+          setTimeout(function(){
+            $("#editEvent").removeAttr('disabled');
+          }, 1000);
+
+          setTimeout(function(){
+            $("#close").removeAttr('disabled');
+          }, 1000);
+
+          setTimeout(function(){
+            $("#youaresure_delete").removeAttr('disabled');
+          }, 1000);
 
 
             $("#youaresure_delete").click(function(){
@@ -304,17 +326,27 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
 
         },
 
-        events: 'http://localhost:3000/admin/welcome',
+        events: 'https://lavishsalon.herokuapp.com/admin/welcome',
 
-        refetchEvents: 'http://localhost:3000/admin/welcome',
+        refetchEvents: 'https://lavishsalon.herokuapp.com/admin/welcome',
 
         dayClick: function(date, jsEvent, view) {
+
+          console.log(jsEvent);
+
+          jsEvent.stopPropagation();
 
           if($("dialog").dialog({display: true})){
             $(".fc-state-active").css({"z-index":"-10"});
           }
 
-          scope.newDate = date.format();
+          //TODO this isn't doing what you think
+          scope.$apply(function(){
+            scope.newDate = date.format();
+            scope.currentCalendarEvent = {};
+          });
+
+
         //  console.log('scope date', scope.newDate);
 
           var originalContent;
@@ -325,21 +357,35 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
               display: true,
               show: 'fade',
               hide: 'fade',
-              open : function(event, ui) {
-                originalContent = $("#newDialog-form").html();
-              },
-              close : function(event, ui) {
-                $("#newDialog-form").html(originalContent);
-              }
+              // open : function(event, ui) {
+              //
+              //     // originalContent = $("#newDialog-form").html();
+              //
+              // },
+              // close : function(event, ui) {
+              //
+              //     // $("#newDialog-form").html(originalContent);
+              //
+              // }
 
             });
 
-            $("#client_name").val("");
-            $("#starttime_hr").val("");
-            $("#starttime_min").val("");
-            $("#endtime_hr").val("");
-            $("#endtime_min").val("");
-            $("#services").val("");
+            // setTimeout(function(){
+            //   console.log('hey der barb');
+            //   $("#addEvent").removeAttr('disabled');
+            // }, 1000);
+
+            setTimeout(function(){
+              $("#cancel").removeAttr('disabled');
+            }, 1000);
+
+            //
+            // $("#client_name").val("");
+            // $("#starttime_hr").val("");
+            // $("#starttime_min").val("");
+            // $("#endtime_hr").val("");
+            // $("#endtime_min").val("");
+            // $("#services").val("");
 
        }
      });

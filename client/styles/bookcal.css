@@ -3,14 +3,21 @@
   margin-right: 0;
 }
 
-#clientcalendarshow .fc-button-group {
-  margin-right: -4.2em;
+#clientcalendarshow.fc-button-group {
+  padding-left: 7.5em;
 }
 
 #clientcalendarshow h2 {
   margin-left: -0.5em;
 }
 
+#clientcalendarshow .fc-prev-button {
+  margin-left: 4.4em;
+}
+
+/*#clientcalendarshow .fc-time span {
+  display: none;
+}*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -20,6 +27,10 @@
     width: 100%;
     text-align: center;
     margin-left: 0;
+  }
+
+  #clientcalendarshow .fc-prev-button {
+    margin-left: -2.5em;
   }
 
   .textinput {
@@ -45,7 +56,7 @@
 
   .fc-button-group {
     width: 90%;
-    padding-left: 17%;
+    padding-left: 25%;
   }
 
   .breaks {

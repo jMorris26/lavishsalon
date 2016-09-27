@@ -3,12 +3,12 @@
 app.controller('controller', ['$http', '$window', '$location', function($http, $window, $location){
   var vm = this;
   vm.auth = function(user, password, path){
-    var basePath = 'http://localhost:3000';
+    var basePath = 'https://lavishsalon.herokuapp.com';
     var fullPath = basePath + path;
 
     $http.post(fullPath, {username:user, password:password})
     .then(function(response){
-      console.log(response);
+      console.log('Are these the droids you are looking for? ', response);
       $window.sessionStorage.token = response.data.token;
       vm.message = 'Log in successful!!!';
       $location.url('/admin/welcome');
@@ -23,7 +23,7 @@ app.controller('controller', ['$http', '$window', '$location', function($http, $
 
 
   vm.restricted = function(){
-    $http.get('http://localhost:3000/admin/welcome')
+    $http.get('https://lavishsalon.herokuapp.com/admin/welcome')
     .then(function(response){
       console.log(response);
       vm.restrictedMessage = response.data.first_name + " " + response.data.last_name;
@@ -43,7 +43,7 @@ app.controller('BookController', ['$http', '$location', function($http, $locatio
   vm.showAvailable = false;
   vm.buttonClick = function(path){
     console.log(vm.form);
-    var basePath = 'http://localhost:3000';
+    var basePath = 'https://lavishsalon.herokuapp.com';
     var fullPath = basePath + path;
     $http.post(fullPath, vm.form)
       .then(function(response) {
