@@ -30,4 +30,6 @@
   <img src="client/images/adminside.png" width="300"> <img src="client/images/clientside.png" width="300">
 </p>
 
-This project was created with jQuery, AngularJS, HTML/CSS, Bootstrap, Knex, and Node.
+<p align="center">
+  This project was created with jQuery, AngularJS, HTML/CSS, Bootstrap, Knex, and Node.
+</p>
