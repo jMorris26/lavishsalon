@@ -7,7 +7,7 @@ This website is designed with the client in mind; it is both desktop & mobile fr
 
 <!-- ![](client/images/landing_pg.png) ![](client/images/book_pg.png) -->
 
-<img src="client/images/landing_pg.png" width="200">
+<img src="client/images/landing_pg.png" width="300"> <img src="client/images/book_pg.png" width="300">
 
 Users can submit requests for appointments, and Amanda will receive an email with their information.
 
