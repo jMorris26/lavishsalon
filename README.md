@@ -6,7 +6,7 @@ Lavish Salon is a beauty parlor based out of Oldtown, Idaho. It was founded by A
 This website is designed with the client in mind; it is both desktop & mobile friendly.
 
 <!-- ![](client/images/landing_pg.png){width:200px;} ![](client/images/book_pg.png) -->
-<img src="client/images/landing_pg.png" style="width:200px;" />
+<img src="client/images/landing_pg.png" style="width:50px;" />
 
 Users can submit requests for appointments, and Amanda will receive an email with their information.
 
