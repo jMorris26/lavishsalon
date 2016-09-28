@@ -1,11 +1,11 @@
 ##Lavish Salon
 
-![](client/images/lavish_logo_white.png)
+<p align="center">
+  <img src="client/images/lavish_logo_white.png" width="300">
+</p>
 
 Lavish Salon is a beauty parlor based out of Oldtown, Idaho. It was founded by Amanda Johnson in early 2016.
 This website is designed with the client in mind; it is both desktop & mobile friendly.
-
-<!-- ![](client/images/landing_pg.png) ![](client/images/book_pg.png) -->
 
 <img src="client/images/landing_pg.png" width="300"> <img src="client/images/book_pg.png" width="300">
 
