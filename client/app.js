@@ -122,6 +122,7 @@ app.directive('clientcalendar', [function(){
 
         defaultView: 'agendaWeek',
 
+        height: "auto",
 
         events: 'https://lavishsalon.herokuapp.com/book',
 
@@ -271,6 +272,8 @@ app.directive('calendar', ['$http', '$document', function($http, $document){
         minTime: '07:00:00',
 
         maxTime: '19:00:00',
+
+        height: "auto",
 
         displayEventTime: true,
 

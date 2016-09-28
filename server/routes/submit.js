@@ -107,18 +107,21 @@ router.post('/', function(req, res){
   	var post_req = https.request(post_options, function(response) {
   		response.setEncoding('utf8');
   		response.on('data', function (chunk) {
+        console.log('chunk', chunk);
   			result = chunk;
   		});
   		response.on('error', function (e) {
   			result = 'Error: ' + e.message;
+        console.log('Error: ', e.message);
   		});
   	});
 
   	// Post to Elastic Email
   	post_req.write(post_data);
   	post_req.end();
+    console.log('result: ', result);
     res.json({result: result});
-    return result;
+    // return result;
   }
 
   console.log(sendElasticEmail());

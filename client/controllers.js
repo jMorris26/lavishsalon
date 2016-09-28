@@ -10,13 +10,14 @@ app.controller('controller', ['$http', '$window', '$location', function($http, $
     .then(function(response){
       console.log('Are these the droids you are looking for? ', response);
       $window.sessionStorage.token = response.data.token;
-      vm.message = 'Log in successful!!!';
+      //vm.message = 'Log in successful!!!';
       $location.url('/admin/welcome');
     })
     .catch(function(err){
       console.log(err);
       delete $window.sessionStorage.token;
-      vm.message = 'Log in unsuccessful :-(';
+      vm.message = 'Your username or password is incorrect';
+      console.log(vm.message);
     });
   };
 
@@ -66,7 +67,7 @@ app.controller('AdminLoginController', ['$http', '$window', '$location', functio
   vm.logout = function(){
     delete $window.sessionStorage.token;
     vm.message = 'Log out successful!!!';
-    $location.url('/');
+    $location.url('/admin');
   };
 
 }]);

@@ -26,20 +26,37 @@ body {
   padding-top: 2em;
   padding-bottom: 2em;
 }
-
+/*
 .desktopIntro {
   display: none;
-}
+}*/
 
 .desktopButton {
 	display: none;
 }
 
 .logo-art-wrapper img {
-	display: none;
+	margin-left: 30%;
+	opacity: 0.3;
+	width: 40%;
 }
 
 #topart {
+	margin-left: 30%;
+	opacity: 0.3;
+	width: 40%;
+}
+
+.desktopIntro {
+	text-align: center;
+	font-family: WalkwayBold, Arial, sans-serif;
+	color: white;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-size: 3em;
+}
+
+.noshowmobile {
 	display: none;
 }
 
@@ -68,6 +85,12 @@ ul {
   height: 6em;
 }
 
+#pampered {
+	font-size:1.5em;
+	margin-bottom: 2em;
+	color:#78D5D7;
+}
+
 /*.slideshow {
   background-color: #78D5D7;
   width: 100%;
@@ -77,10 +100,12 @@ ul {
 #slideshow {
     margin: 50px auto;
     position: relative;
-    width: 100%;
+    margin-left: 20%;
+		margin-right: 20%;
     /*height: 240px;*/
     /*padding: 10px;*/
     /*box-shadow: 0 0 20px rgba(0,0,0,0.4);*/
+
 }
 
 #slideshow img {
@@ -90,6 +115,8 @@ ul {
     right: 10px;
     bottom: 10px;
     width: 100%;
+		/*border: 3px solid #78D5D7;*/
+		margin-bottom: 30px;
 }
 
 h1 {
@@ -133,6 +160,10 @@ strong {
     margin-top: 0.5em;
   }
 
+	#pampered {
+		font-size:2em;
+	}
+
   .navbar {
     margin-top: -13.5em;
     width: 68%;
@@ -142,8 +173,14 @@ strong {
     height: 2em;
   }
 
+	.noshowmobile {
+		display: block;
+	}
+
   #slideshow {
-    margin-top: -28em;
+    margin-top: -33em;
+		margin-left: 0.5em;
+		margin-right: 0;
   }
 
   #slideshow img {
@@ -199,7 +236,7 @@ strong {
 	.logo-art-wrapper {
 		margin-left:53%;
 		margin-top:33%;
-		opacity: 0.2;
+		/*opacity: 0.2;*/
 	}
 
 	.logo-art-wrapper img {
@@ -214,7 +251,7 @@ strong {
 		position: fixed;
 		display: inline;
 		width: 20%;
-		opacity: 0.2;
+		/*opacity: 0.2;*/
 		margin-top: -5em;
 	}
 }

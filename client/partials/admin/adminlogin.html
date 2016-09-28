@@ -1,18 +1,19 @@
-<h1>Admin Login</h1>
+<h1 class="adminlogin">Admin Login</h1>
 
-<form ng-controller="controller as c">
+<form ng-controller="controller as c" class="loginform">
 
   <label>Username</label>
-    <input type="text" name="username" ng-model="c.user"/>
+    <input class="logininput" type="text" name="username" ng-model="c.user"/>
 
     <br />
 
   <label>Password</label>
-    <input type="password" name="password" ng-model="c.password"/>
+    <input class="logininput" type="password" name="password" ng-model="c.password"/>
 
     <br /><br />
 
-    <input type="submit" name="login" class="submit login" value="Log In" ng-click="c.auth(c.user, c.password, '/welcome')"/>
+    <input type="submit" id="adminbuttonlogin" name="login" class="submit login" value="Log In" ng-click="c.auth(c.user, c.password, '/welcome')"/>
 
-    <!-- <h1>{{ c.message }}</h1> -->
+    <p id="wronglogin">{{ c.message }}</p>
+
 </form>

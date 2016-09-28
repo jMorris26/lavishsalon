@@ -178,6 +178,14 @@ and (orientation : portrait) {
 
   .submit {
     margin-bottom: 3em;
+    font-size: 2em;
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  #confirm {
+    width: 50%;
+    margin-left: 25%;
   }
 
   .submit:hover {

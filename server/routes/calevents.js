@@ -16,7 +16,7 @@ router.get('/', function(req, res){
     var start;
     var end;
 
-    console.log('data!', data);
+    //console.log('data!', data);
     for(var i = 0; i < data.length; i++){
       var appts = {};
       output = JSON.stringify(data[i].date);
@@ -30,7 +30,7 @@ router.get('/', function(req, res){
 
       justTimeStart = start.split('T');
         justTimeStart = justTimeStart[1];
-        console.log('justTimeStart',justTimeStart);
+        //console.log('justTimeStart',justTimeStart);
         justTimeStart = justTimeStart.slice(0, -3);
 
       justTimeEnd = end.split('T');
@@ -62,23 +62,30 @@ router.get('/', function(req, res){
 
 //below is for posting
 router.post('/', function(req, res){
+  console.log('is this the response? ', res);
+  if((req.body.client_name !== null) && (req.body.starttime_hr !== null) && (req.body.starttime_min !== null) && (req.body.endtime_hr !== null) && (req.body.endtime_min !== null) && (req.body.services !== null)){
+    knex('calevents').insert({
+      date: req.body.date,
+      client_name: req.body.client_name,
+      starttime_hr: req.body.starttime_hr,
+      starttime_min: req.body.starttime_min,
+      endtime_hr: req.body.endtime_hr,
+      endtime_min: req.body.endtime_min,
+      services: req.body.services
+    })
+    .returning('*')
+    .then(function(data){
+      console.log('%%%%%%%%%%%%%%##################@@@@@@@@@@');
+      console.log(data);
+      res.json(data);
+    }, function(err){
+      console.log(err);
+    });
+  }
+
+
   //console.log(req.body);
-  knex('calevents').insert({
-    date: req.body.date,
-    client_name: req.body.client_name,
-    starttime_hr: req.body.starttime_hr,
-    starttime_min: req.body.starttime_min,
-    endtime_hr: req.body.endtime_hr,
-    endtime_min: req.body.endtime_min,
-    services: req.body.services
-  })
-  .returning('*')
-  .then(function(data){
-    console.log(data);
-    res.json(data);
-  }, function(err){
-    console.log(err);
-  });
+
 });
 
 

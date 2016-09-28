@@ -25,12 +25,18 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 @media (min-width:1025px){
+
   .ourstory {
     margin-top: -1em;
     margin-left: 45%;
     width: 30%;
+    font-size: 3em;
     text-align: center;
-}
+  }
+
+  .you h3 {
+    font-size: 1em;
+  }
 
   #ourstorypic {
     width: 30%;

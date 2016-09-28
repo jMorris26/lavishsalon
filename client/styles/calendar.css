@@ -175,7 +175,7 @@ h2 {
 
 #fillOutFields {
 	color: rgb(255, 150, 150);
-	
+
 	text-align: center;
 	font-size: 2em;
 }
@@ -241,4 +241,16 @@ h2 {
 		z-index: 2;
 	}
 }
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ desktop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (min-width:1025px){
+
+	.fc-button-group {
+		padding-left: 5%;
+	}
+
 }
